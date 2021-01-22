@@ -1,0 +1,46 @@
+package com.zhen77.test;
+
+import com.zhen77.pojo.Dept;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.log4j.lf5.util.Resource;
+import org.junit.Test;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+
+/**
+ * @author : Zhen77
+ * @date: 2021/1/22 - 01 - 22 - 19:37
+ * @Description: com.zhen77.test
+ * @version: 1.0
+ */
+public class MyBatisTest {
+
+    @Test
+    public void insert() throws IOException {
+
+        //1.加载配置文件
+        InputStream resource= Resources.getResourceAsStream("SqlMapConfig.xml");
+
+        //2.获得session对象，建立会话连接
+        SqlSessionFactoryBuilder builder=new SqlSessionFactoryBuilder();
+        SqlSessionFactory factory=builder.build(resource);
+        SqlSession session=factory.openSession();
+
+        //3.调用session方法，获得结果信息
+        List<Dept> list=session.selectList("selectDept");
+        for(Dept d:list){
+            System.out.println(d.getDeptno()+";"+d.getDname()+";"+d.getLoc());
+        }
+        //4.关闭session对象资源
+        session.close();
+
+    }
+
+
+}
