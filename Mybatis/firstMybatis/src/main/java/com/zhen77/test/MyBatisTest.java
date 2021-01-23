@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
@@ -40,6 +41,24 @@ public class MyBatisTest {
         //4.关闭session对象资源
         session.close();
 
+    }
+
+    private SqlSessionFactory factory;
+    @Before
+    public void before() throws IOException{
+        //1.加载配置文件
+        InputStream resource= Resources.getResourceAsStream("SqlMapConfig.xml");
+
+        //2.获得session对象，建立会话连接
+        SqlSessionFactoryBuilder builder=new SqlSessionFactoryBuilder();
+        factory=builder.build(resource,"development");
+    }
+    @Test
+    public void findById(){
+        SqlSession session = factory.openSession();
+        Dept dept = session.selectOne("selectDeptById", 10);
+        System.out.println(dept.getDeptno() + "_" + dept.getDname() + "_" + dept.getLoc());
+        session.close();
     }
 
 
