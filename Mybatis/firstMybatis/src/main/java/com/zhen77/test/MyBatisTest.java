@@ -5,7 +5,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.apache.log4j.lf5.util.Resource;
+
 import org.junit.Test;
 
 import java.io.File;
@@ -29,11 +29,11 @@ public class MyBatisTest {
 
         //2.获得session对象，建立会话连接
         SqlSessionFactoryBuilder builder=new SqlSessionFactoryBuilder();
-        SqlSessionFactory factory=builder.build(resource);
+        SqlSessionFactory factory=builder.build(resource,"development");
         SqlSession session=factory.openSession();
 
         //3.调用session方法，获得结果信息
-        List<Dept> list=session.selectList("selectDept");
+        List<Dept> list=session.selectList("selectAllDept");
         for(Dept d:list){
             System.out.println(d.getDeptno()+";"+d.getDname()+";"+d.getLoc());
         }
