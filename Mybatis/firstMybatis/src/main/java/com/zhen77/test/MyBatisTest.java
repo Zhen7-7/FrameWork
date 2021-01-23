@@ -60,6 +60,29 @@ public class MyBatisTest {
         System.out.println(dept.getDeptno() + "_" + dept.getDname() + "_" + dept.getLoc());
         session.close();
     }
+    @Test
+    public void addDept(){
+        SqlSession session = factory.openSession();
+        Dept dept = new Dept(11,"运维部","上海");
+        int i = session.insert("insertDept",dept);
+        //注意:   session进行手动提交
+        session.commit();
+        session.close();
+        System.out.println(i==1?"添加成功":"添加失败");
+    }
+
+    @Test
+    public void insertUseGeneratedKeys(){
+        SqlSession session = factory.openSession();
+        Dept dept = new Dept();
+        dept.setDname("快递部");
+        dept.setLoc("哈尔滨");
+        int i = session.insert("insertUseGeneratedKeys", dept);
+
+        session.commit();
+        session.close();
+        System.out.println(i==1?"添加成功":"添加失败");
+    }
 
 
 }
