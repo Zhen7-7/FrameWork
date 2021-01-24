@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.msb.mapper.ItemsMapper" >
+  <resultMap id="BaseResultMap" type="com.msb.pojo.Items" >
+    <id column="iid" property="iid" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="detail" property="detail" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    iid, name, detail, price
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from items
+    where iid = #{iid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from items
+    where iid = #{iid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.msb.pojo.Items" >
+    insert into items (iid, name, detail, 
+      price)
+    values (#{iid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.msb.pojo.Items" >
+    insert into items
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="iid != null" >
+        iid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="detail != null" >
+        detail,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="iid != null" >
+        #{iid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null" >
+        #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.msb.pojo.Items" >
+    update items
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null" >
+        detail = #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where iid = #{iid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.msb.pojo.Items" >
+    update items
+    set name = #{name,jdbcType=VARCHAR},
+      detail = #{detail,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE}
+    where iid = #{iid,jdbcType=INTEGER}
+  </update>
+</mapper>
