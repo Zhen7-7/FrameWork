@@ -1,6 +1,7 @@
 package com.zhen77.test;
 
 import com.zhen77.pojo.Dept;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -63,7 +64,7 @@ public class MyBatisTest {
     @Test
     public void addDept(){
         SqlSession session = factory.openSession();
-        Dept dept = new Dept(11,"运维部","上海");
+        Dept dept = new Dept(10,"运维部","上海");
         int i = session.insert("insertDept",dept);
         //注意:   session进行手动提交
         session.commit();
@@ -82,6 +83,33 @@ public class MyBatisTest {
         session.commit();
         session.close();
         System.out.println(i==1?"添加成功":"添加失败");
+    }
+
+    @Test
+    public void updateDeptById(){
+        SqlSession session = factory.openSession();
+        Dept dept = new Dept();
+        dept.setDeptno(10);
+        dept.setLoc("克山县");
+
+        int i = session.update("updateDeptById", dept);
+
+        session.commit();
+        session.close();
+        System.out.println(i==1?"修改成功":"修改失败");
+    }
+
+    @Test
+    public void delDeptById(){
+        SqlSession session = factory.openSession();
+        Dept dept = new Dept();
+        dept.setDeptno(10);
+        int i = session.delete("delDeptById", dept);
+//        int i = session.delete("delDeptById", 10);
+
+        session.commit();
+        session.close();
+        System.out.println(i==1?"删除成功":"删除失败");
     }
 
 

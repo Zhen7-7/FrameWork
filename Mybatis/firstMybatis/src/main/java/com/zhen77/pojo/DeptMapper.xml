@@ -20,4 +20,10 @@
     <insert id="insertUseGeneratedKeys" parameterType="dept" useGeneratedKeys="true" keyProperty="deptno">
         insert into dept(dname,loc) values(#{dname},#{loc})
     </insert>
+    <update id="updateDeptById" parameterType="dept">
+        update dept set loc=#{loc} where deptno=#{deptno}
+    </update>
+    <delete id="delDeptById" parameterType="int">
+        delete from dept where deptno = #{deptno}
+    </delete>
 </mapper>
