@@ -91,8 +91,22 @@ public class MyBatisTest {
             System.out.println("失败");
 
         }
+    }
+    @Test
+    public void test5() throws Exception{
+        SqlSession session = factory.openSession();
+        EmpMapper mapper = session.getMapper(EmpMapper.class);
+        Emp emp = new Emp();
+        emp.setEmpno(1234);
+        emp.setSal(7000.0);
+        emp.setEname("三歌");
 
 
+
+        int i = mapper.updateEmp(emp);
+        session.commit();
+        session.close();
+        System.out.println(i==1?"成功":"失败");
     }
 
 

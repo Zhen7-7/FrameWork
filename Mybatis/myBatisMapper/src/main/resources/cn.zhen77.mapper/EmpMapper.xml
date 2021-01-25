@@ -79,4 +79,28 @@
         </trim>
 
     </insert>
+    <update id="updateEmp" parameterType="emp">
+        <!-- update emp set 列=值, 列=值, 列=值, where 列=值,列=值 -->
+
+        update emp
+        <set>
+            <if test="sal != null">
+                sal=#{sal},
+            </if>
+            <if test="mgr !=null">
+                mgr=#{mgr},
+            </if>
+            <if test="ename!=null">
+                ename=#{ename},
+            </if>
+        </set>
+        <where>
+            <if test="empno!=null">
+                and empno=#{empno}
+            </if>
+            <if test="job!=null">
+                and job=#{job}
+            </if>
+        </where>
+    </update>
 </mapper>

@@ -12,6 +12,7 @@ public interface EmpMapper {
 
     int insertEmp(Emp emp) throws Exception;
 
+    int updateEmp(Emp emp) throws Exception;
 
 
 }
