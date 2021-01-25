@@ -1,4 +1,4 @@
-package com.msb.mapper;
+package cn.zhen77.mapper;
 
 import com.msb.pojo.Emp;
 
