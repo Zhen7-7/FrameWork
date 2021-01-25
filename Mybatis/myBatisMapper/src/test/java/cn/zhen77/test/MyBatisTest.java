@@ -1,7 +1,9 @@
 package cn.zhen77.test;
 
 import cn.zhen77.mapper.DeptMapper;
+import cn.zhen77.mapper.EmpMapper;
 import cn.zhen77.pojo.Dept;
+import cn.zhen77.pojo.Emp;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -36,4 +38,73 @@ public class MyBatisTest {
         }
         session.close();
     }
+
+    @Test
+    public void test2() throws Exception{
+        SqlSession session = factory.openSession();
+        EmpMapper empMapper = session.getMapper(EmpMapper.class);
+        Emp emp = new Emp();
+        emp.setSal(3000.0);
+//        emp.setEname("张三");
+        List<Emp> list = empMapper.selectEmpBySalename(emp);
+        session.close();
+        for (Emp e : list){
+            System.out.println(e.getDeptno()+":"+e.getEname()+":"+e.getSal());
+        }
+    }
+    @Test
+    public void Test3() throws Exception{
+        SqlSession session = factory.openSession();
+        EmpMapper EmpMapper = session.getMapper(EmpMapper.class);
+        Emp emp = new Emp();
+        emp.setSal(9000.0);
+        emp.setDeptno(10);
+
+
+        List<Emp> list = EmpMapper.seletctEmpByinfo(emp);
+        for (Emp e:list){
+            System.out.println(e.getDeptno()+":"+e.getEname()+":"+e.getSal());
+        }
+
+        session.close();
+    }
+    @Test
+    public void test4() throws Exception{
+        SqlSession session = factory.openSession();
+        EmpMapper empMapper = session.getMapper(EmpMapper.class);
+        Emp emp = new Emp();
+        emp.setEname("孙朕");
+        emp.setSal(10000.0);
+        emp.setComm(500.0);
+        emp.setEmpno(10);
+
+
+        int i = empMapper.insertEmp(emp);
+        session.commit();
+        session.close();
+
+
+        if (i==1){
+            System.out.println("成功");
+
+        }else{
+            System.out.println("失败");
+
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
