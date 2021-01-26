@@ -103,4 +103,29 @@
             </if>
         </where>
     </update>
+    <!--
+    <select id="selectEmpByList" parameterType="java.util.List" resultType="emp">
+    select * from emp
+        <where>
+            <foreach collection="list" open="(" close=")" item="empno" separator="or">
+                empno=#{empno}
+            </foreach>
+        </where>
+    </select>-->
+    <select id="selectEmpByList" parameterType="java.util.List" resultType="emp">
+        select * from emp
+
+            <foreach collection="list" open="(" close=")" item="empno" separator=",">
+                #{empno}
+            </foreach>
+
+    </select>
+    <select id="selectEmpByArray" parameterType="java.util.List" resultType="emp">
+        select * from emp
+        <where>
+            <foreach collection="array" open="(" close=")" item="empno" separator="or">
+                empno=#{empno}
+            </foreach>
+        </where>
+    </select>
 </mapper>

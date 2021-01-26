@@ -14,5 +14,9 @@ public interface EmpMapper {
 
     int updateEmp(Emp emp) throws Exception;
 
+    List<Emp> selectEmpByList (List<Integer> list) throws Exception;
+
+    List<Emp> selectEmpByArray (int[] array) throws Exception;
+
 
 }
