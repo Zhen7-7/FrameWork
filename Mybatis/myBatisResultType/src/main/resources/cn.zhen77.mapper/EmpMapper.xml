@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.zhen77.mapper.EmpMapper" >
+    <resultMap id="empAndDept" type="emp">
+        <id column="empno" property="empno"/>
+        <result column="ename" property="ename"/>
+        <result column="job" property="jbo"/>
+        <result column="mgr" property="mgr"/>
+        <result column="hiredate" property="hiredate"/>
+        <result column="sal" property="sal"/>
+        <result column="comm" property="comm"/>
 
+        <association property="dept" javaType="dept">
+            <id column="deptno" property="deptno"/>
+            <result column="dname" property="dname"/>
+            <result column="loc" property="loc"/>
+        </association>
+
+    </resultMap>
+    
+    <select id="selectAllEmp" resultMap="empAndDept">
+
+
+
+        select e.empno,e.ename,e.mgr,e.sal,e.hiredate,d.deptno,d.dname,d.loc
+        from emp e  inner join dept d
+                    on e.deptno=d.deptno
+    </select>
 </mapper>

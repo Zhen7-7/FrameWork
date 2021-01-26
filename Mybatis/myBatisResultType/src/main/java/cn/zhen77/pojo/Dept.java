@@ -1,6 +1,6 @@
 package cn.zhen77.pojo;
 
-public class Dpet {
+public class Dept {
     private Integer deptno;
 
     private String dname;
@@ -29,5 +29,14 @@ public class Dpet {
 
     public void setLoc(String loc) {
         this.loc = loc == null ? null : loc.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Dept{" +
+                "deptno=" + deptno +
+                ", dname='" + dname + '\'' +
+                ", loc='" + loc + '\'' +
+                '}';
     }
 }

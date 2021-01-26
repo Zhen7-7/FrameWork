@@ -3,6 +3,11 @@ package cn.zhen77.pojo;
 import java.util.Date;
 
 public class Emp {
+    //    private Integer deptno;
+    //第一步:  注销deptno  添加dept对象 重写添加方法
+    //private Integer empno;
+
+
     private Integer empno;
 
     private String ename;
@@ -17,14 +22,18 @@ public class Emp {
 
     private Double comm;
 
-    private Integer deptno;
+    private Dept dept;
 
-    public Integer getEmpno() {
-        return empno;
+
+
+
+
+    public Dept getDept() {
+        return dept;
     }
 
-    public void setEmpno(Integer empno) {
-        this.empno = empno;
+    public void setDept(Dept dept) {
+        this.dept = dept;
     }
 
     public String getEname() {
@@ -75,11 +84,43 @@ public class Emp {
         this.comm = comm;
     }
 
-    public Integer getDeptno() {
-        return deptno;
+    public Integer getEmpno() {
+        return empno;
     }
 
-    public void setDeptno(Integer deptno) {
-        this.deptno = deptno;
+    public void setEmpno(Integer empno) {
+        this.empno = empno;
+    }
+
+
+    public Emp() {
+    }
+
+    public Emp(Integer empno, String ename, String job, Integer mgr, Date hiredate, Double sal, Double comm, Dept dept) {
+        this.empno = empno;
+        this.ename = ename;
+        this.job = job;
+        this.mgr = mgr;
+        this.hiredate = hiredate;
+        this.sal = sal;
+        this.comm = comm;
+        this.dept = dept;
+    }
+
+    @Override
+    public String toString() {
+        return "Emp{" +
+                "empno=" + empno +
+                ", ename='" + ename + '\'' +
+                ", job='" + job + '\'' +
+                ", mgr=" + mgr +
+                ", hiredate=" + hiredate +
+                ", sal=" + sal +
+                ", comm=" + comm +
+                ", dept=" + dept.toString() +
+                '}';
     }
 }
+
+
+

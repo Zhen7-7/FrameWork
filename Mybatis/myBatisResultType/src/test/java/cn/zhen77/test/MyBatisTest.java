@@ -1,6 +1,8 @@
 package cn.zhen77.test;
 
 import cn.zhen77.mapper.EmpDeptMapper;
+import cn.zhen77.mapper.EmpMapper;
+import cn.zhen77.pojo.Emp;
 import cn.zhen77.pojo.EmpDept;
 import com.mysql.cj.Session;
 import org.apache.ibatis.io.Resources;
@@ -37,6 +39,19 @@ public class MyBatisTest {
         session.close();
         for (EmpDept e: list) {
             System.out.println(e.toString());
+        }
+
+    }
+    @Test
+    public void test2() throws Exception {
+        SqlSession session = factory.openSession();
+        EmpMapper empMapper = session.getMapper(EmpMapper.class);
+        List<Emp> emps = empMapper.selectAllEmp();
+
+        session.close();
+        for ( Emp e: emps) {
+            System.out.println(e.toString());
+
         }
 
     }

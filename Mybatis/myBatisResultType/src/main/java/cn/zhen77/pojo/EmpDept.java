@@ -9,6 +9,7 @@ import java.util.Date;
  * @version: 1.0
  */
 public class EmpDept {
+
     private Integer deptno;
 
     private String dname;
@@ -34,6 +35,7 @@ public class EmpDept {
     public void setDeptno(Integer deptno) {
         this.deptno = deptno;
     }
+
 
     public String getDname() {
         return dname;
@@ -128,4 +130,6 @@ public class EmpDept {
                 ", comm=" + comm +
                 '}';
     }
+
 }
+
