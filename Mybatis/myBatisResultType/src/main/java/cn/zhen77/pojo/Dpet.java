@@ -1,6 +1,6 @@
 package cn.zhen77.pojo;
 
-public class Dept {
+public class Dpet {
     private Integer deptno;
 
     private String dname;
