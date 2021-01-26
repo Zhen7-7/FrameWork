@@ -4,7 +4,10 @@
 
 <!--    什么使用where  当SQL语句后面一定能存在一个条件就用where语句-->
 <!--    否则就用where标签-->
-
+    <sql id="sqlid">
+        select * from emp
+    </sql>
+    
     <select id="selectEmpBySalename" parameterType="emp" resultType="emp"   >
 
         select * from emp
@@ -121,10 +124,29 @@
 
     </select>
     <select id="selectEmpByArray" parameterType="java.util.List" resultType="emp">
-        select * from emp
+        <include refid="sqlid"></include>
         <where>
             <foreach collection="array" open="(" close=")" item="empno" separator="or">
                 empno=#{empno}
+            </foreach>
+        </where>
+    </select>
+    <select id="selectEmpByMap" parameterType="java.util.Map" resultType="emp">
+        select * from emp where empno in
+        <foreach collection="empnos" open="(" close=")" item="empno" separator=",">
+            #{empno}
+        </foreach>
+    </select>
+    <select id="selectEmpByMapInfo" parameterType="java.util.Map" resultType="emp">
+        select * from emp
+        <where>
+            deptno=#{deptnokey}
+            and
+            ename like '%${enameKey}%'
+            and
+            empno in
+            <foreach collection="empnoKey" open="(" close=")" item="empno" separator=",">
+                #{empno}
             </foreach>
         </where>
     </select>

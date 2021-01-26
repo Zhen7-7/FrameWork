@@ -13,7 +13,9 @@ import org.junit.Test;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author : zhen77
@@ -144,5 +146,44 @@ public class MyBatisTest {
             System.out.println(e.getDeptno() + ":" + e.getEname() + ":" + e.getSal());
         }
 
+    }
+
+    @Test
+    public void testForeach3() throws Exception {
+        SqlSession session = factory.openSession();
+        EmpMapper mapper = session.getMapper(EmpMapper.class);
+        Map<String, List<Integer>> map = new HashMap<String, List<Integer>>();
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(10);
+        list.add(1234);
+        list.add(1616);
+
+        map.put("empnos", list);
+        List<Emp> emps = mapper.selectEmpByMap(map);
+        session.close();
+        for (Emp e :
+                emps) {
+            System.out.println(e.getDeptno() + ":" + e.getEname() + ":" + e.getSal());
+        }
+    }
+    @Test
+    public void testForeach4() throws Exception{
+        SqlSession session = factory.openSession();
+        EmpMapper mapper = session.getMapper(EmpMapper.class);
+        Map<String, Object> map = new HashMap<String,Object>();
+        map.put("deptnokey",10);
+        map.put("enameKey","三");
+            ArrayList<Integer> list = new ArrayList<Integer>();
+            list.add(100);
+            list.add(1234);
+            list.add(1616);
+
+        map.put("empnoKey",list);
+        List<Emp> emps = mapper.selectEmpByMapInfo(map);
+        session.close();
+        for (Emp e :
+                emps) {
+            System.out.println(e.getDeptno() + ":" + e.getEname() + ":" + e.getSal());
+        }
     }
 }
