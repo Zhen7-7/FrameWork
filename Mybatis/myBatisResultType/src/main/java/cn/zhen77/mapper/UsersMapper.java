@@ -2,6 +2,7 @@ package cn.zhen77.mapper;
 
 import cn.zhen77.pojo.Users;
 import cn.zhen77.util.Page;
+import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
 
@@ -15,4 +16,6 @@ public interface UsersMapper {
     //用于分页  获得当前页 显示的集合信息
     List<Users> selectUserByPage(Page page) throws Exception;
 
+    //使用RowBounds插件
+    List<Users> findall(RowBounds rb);
 }

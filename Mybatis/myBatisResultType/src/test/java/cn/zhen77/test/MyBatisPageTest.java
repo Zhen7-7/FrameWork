@@ -4,6 +4,7 @@ import cn.zhen77.mapper.UsersMapper;
 import cn.zhen77.pojo.Users;
 import cn.zhen77.util.Page;
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -49,7 +50,23 @@ public class MyBatisPageTest {
                 list) {
             System.out.println(u.getUid()+"_"+u.getUname()+"_"+u.getAddress());
         }
+        session.close();
 
+    }
+    @Test
+    public void test2() throws Exception{
+        SqlSession session = factory.openSession();
+        UsersMapper mapper = session.getMapper(UsersMapper.class);
+        RowBounds rb = new RowBounds(0, 2);
+        List<Users> list = mapper.findall(rb);
+        for (Users u :
+                list) {
+            System.out.println(u.getUid()+"_"+u.getUname()+"_"+u.getAddress());
+        }
+
+
+
+        session.close();
     }
 
 }

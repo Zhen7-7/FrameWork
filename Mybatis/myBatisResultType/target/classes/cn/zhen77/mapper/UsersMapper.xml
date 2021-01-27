@@ -51,4 +51,8 @@
         select * from users order by uid limit #{beginindex},#{showdata}
     </select>
 
+    <select id="findall" resultType="users">
+        select * from users
+    </select>
+
 </mapper>
