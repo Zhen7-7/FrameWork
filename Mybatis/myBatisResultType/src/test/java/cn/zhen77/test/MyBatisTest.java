@@ -3,9 +3,8 @@ package cn.zhen77.test;
 import cn.zhen77.mapper.DeptMapper;
 import cn.zhen77.mapper.EmpDeptMapper;
 import cn.zhen77.mapper.EmpMapper;
-import cn.zhen77.pojo.Dept;
-import cn.zhen77.pojo.Emp;
-import cn.zhen77.pojo.EmpDept;
+import cn.zhen77.mapper.UsersMapper;
+import cn.zhen77.pojo.*;
 import com.mysql.cj.Session;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -73,6 +72,25 @@ public class MyBatisTest {
         }
 
         session.close();
+
+    }
+    @Test
+    public void test5() throws Exception {
+        SqlSession session = factory.openSession();
+        UsersMapper mapper = session.getMapper(UsersMapper.class);
+        List<Users> list = mapper.selectAll(1001);
+
+        session.close();
+        for(Users u:list){
+            System.out.println("用户信息："+u.getUname()+";"+u.getUid()+"\n");
+            for(Orders o:u.getOrders()){
+                System.out.println("用户所下的订单信息："+o.getOid()+";"+o.getOrderid()+"\n");
+                for(OrderDetail od:o.getOrderDetail()){
+                    System.out.println("订单详情："+od.getItemnum()+";"+od.getItems().getName()+";"+od.getItems().getDetail());
+
+                }
+            }
+        }
 
     }
 

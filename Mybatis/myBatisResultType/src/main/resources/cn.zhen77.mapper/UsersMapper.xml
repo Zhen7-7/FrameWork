@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zhen77.mapper.UsersMapper">
+    <resultMap id="infoAll" type="users">
+        <id column="uid" property="uid"/>
+        <result column="uname" property="uname"/>
+        <result column="address" property="address"/>
+
+        <collection property="orders" ofType="orders">
+            <id column="oid" property="oid"/>
+            <result column="orderid" property="orderid"/>
+            <result column="status" property="status"/>
+
+            <collection property="orderDetail" ofType="orderdetail">
+                <id column="odid" property="odid"/>
+                <result column="itemnum" property="itemnum"/>
+
+                <association property="items" javaType="items">
+                    <id column="iid" property="iid"/>
+                    <result column="name" property="name"/>
+                    <result column="detail" property="detail"/>
+                    <result column="price" property="price"/>
+                </association>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <select id="selectAll" parameterType="int" resultMap="infoAll">
+        select u.uname,u.uid,u.address,
+        o.orderid,o.createtime,o.status,
+        od.itemnum,
+        i.name,i.detail,i.price
+        from users u inner join orders o    on u.uid=o.userid
+                     inner join orderdetail od    on o.orderid=od.orderid
+                     inner join items i    on od.itemid=i.iid
+        where u.uid=#{uid}
+
+
+    </select>
+</mapper>
