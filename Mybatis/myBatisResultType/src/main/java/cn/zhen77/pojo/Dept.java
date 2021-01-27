@@ -1,5 +1,7 @@
 package cn.zhen77.pojo;
 
+import java.util.List;
+
 public class Dept {
     private Integer deptno;
 
@@ -7,6 +9,7 @@ public class Dept {
 
     private String loc;
 
+    private List<Emp> emps;
     public Integer getDeptno() {
         return deptno;
     }
@@ -31,12 +34,32 @@ public class Dept {
         this.loc = loc == null ? null : loc.trim();
     }
 
+    public List<Emp> getEmps() {
+        return emps;
+    }
+
+    public void setEmps(List<Emp> emps) {
+        this.emps = emps;
+    }
+
+    public Dept() {
+    }
+
+    public Dept(Integer deptno, String dname, String loc, List<Emp> emps) {
+        this.deptno = deptno;
+        this.dname = dname;
+        this.loc = loc;
+        this.emps = emps;
+    }
+
+
     @Override
     public String toString() {
         return "Dept{" +
                 "deptno=" + deptno +
                 ", dname='" + dname + '\'' +
                 ", loc='" + loc + '\'' +
+                ", emps=" + emps +
                 '}';
     }
 }

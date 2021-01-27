@@ -1,7 +1,9 @@
 package cn.zhen77.test;
 
+import cn.zhen77.mapper.DeptMapper;
 import cn.zhen77.mapper.EmpDeptMapper;
 import cn.zhen77.mapper.EmpMapper;
+import cn.zhen77.pojo.Dept;
 import cn.zhen77.pojo.Emp;
 import cn.zhen77.pojo.EmpDept;
 import com.mysql.cj.Session;
@@ -53,6 +55,24 @@ public class MyBatisTest {
             System.out.println(e.toString());
 
         }
+
+    }
+
+    @Test
+    public void test3() throws Exception{
+        SqlSession session = factory.openSession();
+        DeptMapper mapper = session.getMapper(DeptMapper.class);
+        Dept dept = mapper.findDeptById(10);
+
+        System.out.println("部门信息："+dept.getLoc()+";"+dept.getDname()+";"+dept.getLoc());
+        System.out.println("部门里，所有员工的信息：");
+        if (dept.getEmps()!=null){
+            for(Emp e:dept.getEmps()){
+                System.out.println(e.getEname()+";"+e.getEmpno()+";"+e.getSal());
+            }
+        }
+
+        session.close();
 
     }
 
