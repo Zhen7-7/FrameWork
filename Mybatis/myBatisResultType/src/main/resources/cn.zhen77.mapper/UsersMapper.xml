@@ -37,4 +37,18 @@
 
 
     </select>
+
+
+
+    <!--用于分组 获得一共有多少条数据-->
+    <select id="selectCount" resultType="int" >
+        select count(uid) from users
+    </select>
+
+    <!--用于分组 获得当前页 显示的集合信息-->
+    <select id="selectUserByPage" parameterType="cn.zhen77.util.Page" resultType="users">
+        <bind name="beginindex" value="(pageindex-1)*showdata"/>
+        select * from users order by uid limit #{beginindex},#{showdata}
+    </select>
+
 </mapper>
