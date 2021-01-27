@@ -135,4 +135,71 @@
       loc = #{loc,jdbcType=VARCHAR}
     where deptno = #{deptno,jdbcType=INTEGER}
   </update>
+  <resultMap id="BaseResultMap" type="cn.zhen77.pojo.Dpet">
+    <id column="deptno" jdbcType="INTEGER" property="deptno" />
+    <result column="dname" jdbcType="VARCHAR" property="dname" />
+    <result column="loc" jdbcType="VARCHAR" property="loc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    deptno, dname, loc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dept
+    where deptno = #{deptno,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dept
+    where deptno = #{deptno,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.zhen77.pojo.Dpet">
+    insert into dept (deptno, dname, loc
+      )
+    values (#{deptno,jdbcType=INTEGER}, #{dname,jdbcType=VARCHAR}, #{loc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.zhen77.pojo.Dpet">
+    insert into dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptno != null">
+        deptno,
+      </if>
+      <if test="dname != null">
+        dname,
+      </if>
+      <if test="loc != null">
+        loc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptno != null">
+        #{deptno,jdbcType=INTEGER},
+      </if>
+      <if test="dname != null">
+        #{dname,jdbcType=VARCHAR},
+      </if>
+      <if test="loc != null">
+        #{loc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.zhen77.pojo.Dpet">
+    update dept
+    <set>
+      <if test="dname != null">
+        dname = #{dname,jdbcType=VARCHAR},
+      </if>
+      <if test="loc != null">
+        loc = #{loc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where deptno = #{deptno,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.zhen77.pojo.Dpet">
+    update dept
+    set dname = #{dname,jdbcType=VARCHAR},
+      loc = #{loc,jdbcType=VARCHAR}
+    where deptno = #{deptno,jdbcType=INTEGER}
+  </update>
 </mapper>

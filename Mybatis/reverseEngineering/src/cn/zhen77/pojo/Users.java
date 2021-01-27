@@ -1,55 +1,33 @@
 package cn.zhen77.pojo;
 
-import java.util.Date;
-
 public class Users {
-    private Integer uid;
+    private String user;
 
-    private String uname;
+    private Long currentConnections;
 
-    private String sex;
+    private Long totalConnections;
 
-    private Date birthday;
-
-    private String address;
-
-    public Integer getUid() {
-        return uid;
+    public String getUser() {
+        return user;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setUser(String user) {
+        this.user = user == null ? null : user.trim();
     }
 
-    public String getUname() {
-        return uname;
+    public Long getCurrentConnections() {
+        return currentConnections;
     }
 
-    public void setUname(String uname) {
-        this.uname = uname == null ? null : uname.trim();
+    public void setCurrentConnections(Long currentConnections) {
+        this.currentConnections = currentConnections;
     }
 
-    public String getSex() {
-        return sex;
+    public Long getTotalConnections() {
+        return totalConnections;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex == null ? null : sex.trim();
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
+    public void setTotalConnections(Long totalConnections) {
+        this.totalConnections = totalConnections;
     }
 }

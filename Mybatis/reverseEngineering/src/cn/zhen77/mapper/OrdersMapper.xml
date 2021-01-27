@@ -1,88 +1,177 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.zhen77.mapper.OrdersMapper" >
-  <resultMap id="BaseResultMap" type="com.msb.pojo.Orders" >
-    <id column="oid" property="oid" jdbcType="INTEGER" />
-    <result column="userid" property="userid" jdbcType="INTEGER" />
-    <result column="orderid" property="orderid" jdbcType="VARCHAR" />
-    <result column="createtime" property="createtime" jdbcType="DATE" />
-    <result column="status" property="status" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zhen77.mapper.OrdersMapper">
+  <resultMap id="BaseResultMap" type="cn.zhen77.pojo.Orders">
+    <id column="oid" jdbcType="INTEGER" property="oid" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="createtime" jdbcType="DATE" property="createtime" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
   </resultMap>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     oid, userid, orderid, createtime, status
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from orders
     where oid = #{oid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from orders
     where oid = #{oid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.msb.pojo.Orders" >
+  <insert id="insert" parameterType="cn.zhen77.pojo.Orders">
     insert into orders (oid, userid, orderid, 
       createtime, status)
     values (#{oid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{orderid,jdbcType=VARCHAR}, 
       #{createtime,jdbcType=DATE}, #{status,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.msb.pojo.Orders" >
+  <insert id="insertSelective" parameterType="cn.zhen77.pojo.Orders">
     insert into orders
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="oid != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oid != null">
         oid,
       </if>
-      <if test="userid != null" >
+      <if test="userid != null">
         userid,
       </if>
-      <if test="orderid != null" >
+      <if test="orderid != null">
         orderid,
       </if>
-      <if test="createtime != null" >
+      <if test="createtime != null">
         createtime,
       </if>
-      <if test="status != null" >
+      <if test="status != null">
         status,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="oid != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oid != null">
         #{oid,jdbcType=INTEGER},
       </if>
-      <if test="userid != null" >
+      <if test="userid != null">
         #{userid,jdbcType=INTEGER},
       </if>
-      <if test="orderid != null" >
+      <if test="orderid != null">
         #{orderid,jdbcType=VARCHAR},
       </if>
-      <if test="createtime != null" >
+      <if test="createtime != null">
         #{createtime,jdbcType=DATE},
       </if>
-      <if test="status != null" >
+      <if test="status != null">
         #{status,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.msb.pojo.Orders" >
+  <update id="updateByPrimaryKeySelective" parameterType="cn.zhen77.pojo.Orders">
     update orders
-    <set >
-      <if test="userid != null" >
+    <set>
+      <if test="userid != null">
         userid = #{userid,jdbcType=INTEGER},
       </if>
-      <if test="orderid != null" >
+      <if test="orderid != null">
         orderid = #{orderid,jdbcType=VARCHAR},
       </if>
-      <if test="createtime != null" >
+      <if test="createtime != null">
         createtime = #{createtime,jdbcType=DATE},
       </if>
-      <if test="status != null" >
+      <if test="status != null">
         status = #{status,jdbcType=VARCHAR},
       </if>
     </set>
     where oid = #{oid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.msb.pojo.Orders" >
+  <update id="updateByPrimaryKey" parameterType="cn.zhen77.pojo.Orders">
+    update orders
+    set userid = #{userid,jdbcType=INTEGER},
+      orderid = #{orderid,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=DATE},
+      status = #{status,jdbcType=VARCHAR}
+    where oid = #{oid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.zhen77.pojo.Orders">
+    <id column="oid" jdbcType="INTEGER" property="oid" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="createtime" jdbcType="DATE" property="createtime" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    oid, userid, orderid, createtime, status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orders
+    where oid = #{oid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orders
+    where oid = #{oid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.zhen77.pojo.Orders">
+    insert into orders (oid, userid, orderid, 
+      createtime, status)
+    values (#{oid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{orderid,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=DATE}, #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.zhen77.pojo.Orders">
+    insert into orders
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oid != null">
+        oid,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oid != null">
+        #{oid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.zhen77.pojo.Orders">
+    update orders
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        orderid = #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where oid = #{oid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.zhen77.pojo.Orders">
     update orders
     set userid = #{userid,jdbcType=INTEGER},
       orderid = #{orderid,jdbcType=VARCHAR},

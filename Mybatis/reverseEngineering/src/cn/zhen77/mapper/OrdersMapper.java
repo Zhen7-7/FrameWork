@@ -1,6 +1,6 @@
 package cn.zhen77.mapper;
 
-import com.msb.pojo.Orders;
+import cn.zhen77.pojo.Orders;
 
 public interface OrdersMapper {
     int deleteByPrimaryKey(Integer oid);
