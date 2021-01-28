@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zhen77.mapper.OrderDetailMapper">
+    <resultMap id="OrderDetailItemLazyLoad" type="orderDetail">
+        <id column="odid" property="odid"/>
+        <result column="orderid" property="orderid"/>
+        <result column="itemnum" property="itemnum"/>
+        <association property="items" javaType="items"
+                     select="cn.zhen77.mapper.ItemsMapper.selectByid" column="itemid">
 
+        </association>
+    </resultMap>
+    <select id="selectLazyLoadById" parameterType="int" resultMap="OrderDetailItemLazyLoad">
+        select * from orderdetail where odid=#{id}
+    </select>
 </mapper>
