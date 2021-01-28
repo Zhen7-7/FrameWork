@@ -9,6 +9,8 @@
         <setting name="lazyLoadingEnabled" value="false"/>
         <setting name="aggressiveLazyLoading" value="false"/>
 
+        <setting name="cacheEnabled" value="true"/>
+
     </settings>
     <typeAliases>
         <package name="cn.zhen77.pojo"/>

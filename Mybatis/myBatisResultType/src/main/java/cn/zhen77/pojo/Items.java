@@ -1,6 +1,8 @@
 package cn.zhen77.pojo;
 
-public class Items {
+import java.io.Serializable;
+
+public class Items  implements Serializable {
     private Integer iid;
 
     private String name;

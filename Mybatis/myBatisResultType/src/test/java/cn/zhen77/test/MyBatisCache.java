@@ -39,4 +39,39 @@ public class MyBatisCache {
         System.out.println(item2.getName()+"__"+item2.getPrice());
         session.close();
     }
+    @Test
+    public void test2() throws Exception{
+        SqlSession session = factory.openSession();
+        SqlSession session1 = factory.openSession();
+        ItemsMapper mapper = session.getMapper(ItemsMapper.class);
+        ItemsMapper mapper1 = session1.getMapper(ItemsMapper.class);
+        Items item1 = mapper.selectByid(2);
+        System.out.println(item1.getName()+"__"+item1.getPrice());
+        session.close();
+        Items item2 = mapper1.selectByid(2);
+        System.out.println(item2.getName()+"__"+item2.getPrice());
+        session1.close();
+    }
+    @Test
+    public void test3() throws Exception{
+        SqlSession session = factory.openSession();
+        SqlSession session1 = factory.openSession();
+        ItemsMapper mapper = session.getMapper(ItemsMapper.class);
+        ItemsMapper mapper1 = session1.getMapper(ItemsMapper.class);
+        Items item1 = mapper.selectByid(2);
+        System.out.println(item1.getName()+"__"+item1.getPrice());
+
+
+        Items items = new Items();
+        items.setIid(5);
+        items.setName("玩具娃娃");
+        items.setDetail("非常逼真");
+        items.setPrice(996.0);
+        int i = mapper.insertItems(items);
+        session.commit();
+        session.close();
+        Items item2 = mapper1.selectByid(2);
+        System.out.println(item2.getName()+"__"+item2.getPrice());
+        session1.close();
+    }
 }
