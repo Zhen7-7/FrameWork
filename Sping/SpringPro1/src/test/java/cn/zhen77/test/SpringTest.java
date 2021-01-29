@@ -1,5 +1,6 @@
 package cn.zhen77.test;
 
+import cn.zhen77.pojo.Student;
 import cn.zhen77.pojo.User;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -43,5 +44,15 @@ public class SpringTest {
 //        System.out.println(user);
         User user = (User)app.getBean("us6");
         System.out.println(user);
+    }
+    @Test
+    public void Test2(){
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");//若是立即加载,该语句直接会调用无参的构造方法
+        //默认是单例设计模式 singleton创建一次对象
+        //将scope设置prototype (原型) 每次创建不同的对象
+        Student student =(Student) app.getBean("stu");
+        Student student2 =(Student) app.getBean("stu");
+        System.out.println(student==student2);
+
     }
 }

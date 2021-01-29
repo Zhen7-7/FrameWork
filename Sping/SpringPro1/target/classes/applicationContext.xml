@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans    http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans    http://www.springframework.org/schema/beans/spring-beans.xsd"
+        default-lazy-init="true"
+>
 
 
         <!--
@@ -56,6 +58,15 @@
         <bean id="us6" class="cn.zhen77.factorty.UsersFactory" factory-method="getInstance">
             <constructor-arg name="user" ref="us1"></constructor-arg>
         </bean>
+
+    <!--
+        创建Student对象
+        若使用立即加载 在ApplicationContext对象被创建时直接调用构造方法
+        若使用延迟加载 则只有在调用getBean获得对象时才会调用构造方法
+    -->
+<!--        <bean id="stu" class="cn.zhen77.pojo.Student" lazy-init="true"/>-->
+        <bean id="stu" class="cn.zhen77.pojo.Student" init-method="stuInit" destroy-method="stuDes" scope="prototype"/>
+
 
 
 
