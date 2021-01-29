@@ -74,4 +74,20 @@ public class MyBatisCache {
         System.out.println(item2.getName()+"__"+item2.getPrice());
         session1.close();
     }
+
+    @Test
+    public void testEhcache() throws Exception {
+        SqlSession session1=factory.openSession();
+        SqlSession session2=factory.openSession();
+
+        ItemsMapper mapper1 = session1.getMapper(ItemsMapper.class);
+        Items item1 = mapper1.selectByid(3);//持久化----缓存
+        System.out.println(item1.getName()+"__"+item1.getPrice());
+        session1.close();
+
+        ItemsMapper mapper2 = session2.getMapper(ItemsMapper.class);
+        Items item2 = mapper2.selectByid(3);//持久化----缓存
+        System.out.println(item2.getName()+"__"+item2.getPrice());
+        session2.close();
+    }
 }
