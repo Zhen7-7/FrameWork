@@ -7,10 +7,10 @@ package cn.zhen77.pojo;
  * @version: 1.0
  */
 public class User {
-    private Integer uid;
-    private String uname;
-    private Integer uage;
-    private String usex;
+    private Integer uid = 520;
+    private String uname = "77";
+    private Integer uage = 19;
+    private String usex = "男";
 
 
     public Integer getUid() {

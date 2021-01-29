@@ -3,5 +3,60 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans    http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="us1" class="cn.zhen77.pojo.User"/>
+
+        <!--
+            id:唯一标识
+            class当前所创建对象的全局限定名
+        -->
+        <bean id="us1" class="cn.zhen77.pojo.User"/>
+
+        <!--使用有参构造创建对象-->
+        <bean id="us2" class="cn.zhen77.pojo.User">
+            <!--
+            **注意:name的值一定要和构造参数的中的名相同  毕竟我们用的是有参构造器
+            index[下标从0开始],对应构造方法里的参数下标
+            type
+            value : 一般为简单数据类型
+            ref: 为引用数据类型赋值
+            -->
+            <!--
+            <constructor-arg name="uid" value="1"/>
+            <constructor-arg name="uname" value="莫玉丹"/>
+            <constructor-arg name="uage" value="18"/>
+            <constructor-arg name="usex" value="女"/>
+            -->
+            <constructor-arg index="0" value="2"/>
+            <constructor-arg index="1" value="孙朕"/>
+            <constructor-arg index="2" value="22"/>
+            <constructor-arg index="3" value="男"/>
+        </bean>
+
+
+        <!-- 使用工厂模式创建对象
+            1.创建工厂对象
+            2.通过工厂对象,创建User对象
+        -->
+
+    <!--
+        使用实例工厂类+无参
+        <bean id="factory" class="cn.zhen77.factorty.UsersFactory"/>
+        <bean id="us3" factory-bean="factory" factory-method="getInstance"/>
+    -->
+    <!--
+        使用静态的工厂类+无参
+        <bean id="us4" class="cn.zhen77.factorty.UsersFactory" factory-method="getInstance"/>
+    -->
+    <!--        使用实例工厂类+无参
+        <bean id="factory" class="cn.zhen77.factorty.UsersFactory"/>
+        <bean id="us5" factory-bean="factory" factory-method="getInstance">
+            <constructor-arg name="user" ref="us1"/>
+        </bean>
+    -->
+    <!-- 使用静态的工厂类+有参-->
+        <bean id="us6" class="cn.zhen77.factorty.UsersFactory" factory-method="getInstance">
+            <constructor-arg name="user" ref="us1"></constructor-arg>
+        </bean>
+
+
+
 </beans>

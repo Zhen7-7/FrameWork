@@ -26,5 +26,22 @@ public class SpringTest {
         user.setUsex("女");
 
         System.out.println(user);
+
+        //通过使用有参构造创建对象
+        User user2=(User)app.getBean("us2");
+        System.out.println(user2);
+    }
+    @Test
+    public void TestOfFactory(){
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+//        User user = (User)app.getBean("us3");
+//        System.out.println(user);
+//        User user = (User)app.getBean("us4");
+//        System.out.println(user);
+//        User user = (User)app.getBean("us5");
+//        System.out.println(user);
+        User user = (User)app.getBean("us6");
+        System.out.println(user);
     }
 }
