@@ -107,4 +107,10 @@ public class SpringTest {
         System.out.println(str1+"->"+str2);
 
     }
+    @Test
+    public void estDI2(){
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContextDI.xml");
+        Student stu = (Student) app.getBean("stuAutowire");
+        System.out.println(stu);
+    }
 }

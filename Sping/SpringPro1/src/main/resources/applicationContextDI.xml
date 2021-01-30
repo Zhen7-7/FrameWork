@@ -82,4 +82,10 @@
         </property>
     </bean>
 
+
+    <!-- 使用自动注入方式 进行DI注入-->
+    <bean id="stuAutowire" class="cn.zhen77.pojo.Student" autowire="byType">
+
+    </bean>
+
 </beans>
