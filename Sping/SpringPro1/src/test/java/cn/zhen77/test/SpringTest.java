@@ -55,4 +55,10 @@ public class SpringTest {
         System.out.println(student==student2);
 
     }
+    @Test
+    public void TestDI1(){
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContextDI.xml");
+        Student student = (Student)app.getBean("student");
+        System.out.println(student.toString());
+    }
 }

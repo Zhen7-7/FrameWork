@@ -11,6 +11,16 @@ public class Student {
     private String stuname;
     private Integer stuage;
 
+    private User user;//Student 依赖于USer
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Integer getStuid() {
         return stuid;
     }
@@ -39,10 +49,11 @@ public class Student {
         System.out.println("Student对象被创建");
     }
 
-    public Student(Integer stuid, String stuname, Integer stuage) {
+    public Student(Integer stuid, String stuname, Integer stuage, User user) {
         this.stuid = stuid;
         this.stuname = stuname;
         this.stuage = stuage;
+        this.user = user;
     }
 
     @Override
@@ -51,8 +62,10 @@ public class Student {
                 "stuid=" + stuid +
                 ", stuname='" + stuname + '\'' +
                 ", stuage=" + stuage +
+                ", user=" + user +
                 '}';
     }
+
     public void stuInit(){
         System.out.println("对Student对象进行初始化操作");
     }
