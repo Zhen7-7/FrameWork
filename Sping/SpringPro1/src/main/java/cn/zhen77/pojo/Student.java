@@ -1,5 +1,10 @@
 package cn.zhen77.pojo;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
+
 /**
  * @author : zhen77
  * @date: 2021/1/29 - 01 - 29 - 22:03
@@ -12,6 +17,51 @@ public class Student {
     private Integer stuage;
 
     private User user;//Student 依赖于USer
+    private int[] score;
+    private List<Integer> list;
+    private Set<Integer> set;
+    private Map<String,Integer> map;
+    private Properties pros;
+
+    public Properties getPros() {
+        return pros;
+    }
+
+    public void setPro(Properties pros) {
+        this.pros = pros;
+    }
+
+    public Map<String, Integer> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<String, Integer> map) {
+        this.map = map;
+    }
+
+    public Set<Integer> getSet() {
+        return set;
+    }
+
+    public void setSet(Set<Integer> set) {
+        this.set = set;
+    }
+
+    public List<Integer> getList() {
+        return list;
+    }
+
+    public void setList(List<Integer> list) {
+        this.list = list;
+    }
+
+    public int[] getScore() {
+        return score;
+    }
+
+    public void setScore(int[] score) {
+        this.score = score;
+    }
 
     public User getUser() {
         return user;

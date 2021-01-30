@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.*;
+
 /**
  * @author : zhen77
  * @date: 2021/1/29 - 01 - 29 - 14:11
@@ -59,6 +61,50 @@ public class SpringTest {
     public void TestDI1(){
         ApplicationContext app = new ClassPathXmlApplicationContext("applicationContextDI.xml");
         Student student = (Student)app.getBean("student");
-        System.out.println(student.toString());
+//        System.out.println(student.toString());
+        for (int i: student.getScore()){
+            System.out.println("分数是"+i);
+        }
+        for(int i=0;i<student.getScore().length;i++){
+            System.out.println("分数是"+student.getScore()[i]);
+        }
+        for (int i:student.getList()){
+            System.out.println(i);
+        }
+        for (int i:student.getSet()){
+            System.out.println(i);
+        }
+        //迭代器
+        Iterator<Integer> it=student.getSet().iterator();
+        while (it.hasNext()){
+            System.out.println("迭代器得出"+it.next());
+        }
+        //方式1:
+        HashMap<String,Integer> map = (HashMap<String, Integer>) student.getMap();
+        System.out.println(map);
+        //方式2:
+        for (String s:student.getMap().keySet()){
+            System.out.println(s+"->"+student.getMap().get(s));
+        }
+        //方式3:
+        for (int i: student.getMap().values()){
+            System.out.println(i);
+        }
+        //方法4:迭代器
+        Iterator<String> it1 = student.getMap().keySet().iterator();
+        while(it1.hasNext()){
+            String str = it1.next();
+            System.out.println(str+"="+student.getMap().get(str));
+        }
+        //方式5:
+        for(Map.Entry<String,Integer> m : student.getMap().entrySet() ){
+            System.out.println(m.getKey()+"--"+m.getValue());
+        }
+        System.out.println("------------------------------------------");
+        Properties pros = student.getPros();
+        String str1 = pros.getProperty("username");
+        String str2 = pros.getProperty("password");
+        System.out.println(str1+"->"+str2);
+
     }
 }

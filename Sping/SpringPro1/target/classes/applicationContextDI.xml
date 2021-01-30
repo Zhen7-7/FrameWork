@@ -7,13 +7,79 @@
     1.创建User对象
     2.创建Student对象
      -->
-    <bean id="user" class="cn.zhen77.pojo.User"/>
-    <bean id="student" class="cn.zhen77.pojo.Student">
+    <bean id="user" class="cn.zhen77.pojo.User">
         <constructor-arg index="0" value="2"/>
         <constructor-arg index="1" value="孙朕"/>
         <constructor-arg index="2" value="22"/>
-        <constructor-arg index="3" ref="user"/>
+        <constructor-arg index="3" value="男"/>
+    </bean>
 
+    <!-- 使用构造注入的方式 要求:有有参构造
+    <bean id="student" class="cn.zhen77.pojo.Student">
+        <constructor-arg index="0" value="77"/>
+        <constructor-arg index="1" value="孙朕"/>
+        <constructor-arg index="2" value="22"/>
+        <constructor-arg index="3" ref="user"/>
+    </bean>-->
+    <!-- 使用属性注入的方式 要求:有set方法-->
+    <bean id="student" class="cn.zhen77.pojo.Student">
+        <!--此事的name是set方法 去掉set把大写变成小写的名字-->
+        <property name="stuid" value="77"/>
+        <property name="stuname" value="孙朕"/>
+        <property name="stuage" value="22"/>
+        <property name="user" ref="user"/>
+        <property name="score">
+            <array>
+                <value>90</value>
+                <value>77</value>
+                <value>66</value>
+                <value>55</value>
+            </array>
+        </property>
+        <property name="list">
+            <list>
+                <value>50</value>
+                <value>51</value>
+                <value>52</value>
+                <value>53</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>61</value>
+                <value>62</value>
+                <value>63</value>
+                <value>64</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry>
+                    <key>
+                        <value>student01</value>
+                    </key>
+                    <value>111</value>
+                </entry>
+                <entry>
+                    <key>
+                        <value>student02</value>
+                    </key>
+                    <value>222</value>
+                </entry>
+             <entry>
+                    <key>
+                        <value>student03</value>
+                    </key>
+                    <value>333</value>
+                </entry>
+            </map>
+        </property>
+        <property name="pro">
+            <props>
+                <prop key="username">root</prop>
+                <prop key="password">root</prop>
+            </props>
+        </property>
     </bean>
 
 </beans>
