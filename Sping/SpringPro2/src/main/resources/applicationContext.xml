@@ -11,5 +11,8 @@
     <!-- 创建JDKProxy对象-->
     <bean id="jdkproxy" class="cn.zhen77.aop.proxy02.JDKProxy"/>
 
+    <!--创建CGLibProxy对象-->
+    <bean id="cglibproxy" class="cn.zhen77.aop.proxy03.CGLibproxy"/>
+
 
 </beans>

@@ -6,6 +6,9 @@ import cn.zhen77.aop.proxy01.UserServiceProxy;
 import cn.zhen77.aop.proxy02.JDKProxy;
 import cn.zhen77.aop.proxy02.StudentService;
 import cn.zhen77.aop.proxy02.StudentServiceImpl;
+import cn.zhen77.aop.proxy03.CGLibproxy;
+import cn.zhen77.aop.proxy03.UserSub;
+import cn.zhen77.aop.proxy03.UserSuper;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -42,4 +45,18 @@ public class SpringTest{
         user.add();
         user.delet();
     }
+    @Test
+    public  void test3(){
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        CGLibproxy cglibproy = (CGLibproxy) app.getBean("cglibproxy");
+        UserSuper userSuper = (UserSuper) cglibproy.createProxyInstance(new UserSub());
+        userSuper.add();
+    }
+
+
+
+
+
+
+
 }
