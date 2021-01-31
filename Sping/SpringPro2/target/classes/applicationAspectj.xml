@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+	   http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+	   http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context-4.3.xsd
+">
+    <!-- 扫描指定路径,自动注入注解-->
+    <context:component-scan base-package="cn.zhen77.aop.springaspectj"/>
+    <!--自动为spring容器中那些配置@aspectJ切面的bean创建代理，
+    有一个proxy-target-class属性，默认为false 那么标准的JDK 基于接口的代理将起作用。
+    不过即使proxy-target-class设置为false，如果目标类没有声明接口，则spring将自动使用CGLib动态代理。-->
+    <aop:aspectj-autoproxy/>
+
+
+</beans>

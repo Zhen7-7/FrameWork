@@ -60,6 +60,13 @@ public class SpringTest{
         user.delete();
 
     }
+    @Test
+    public void test5()throws Exception{
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationAspectj.xml");
+        cn.zhen77.aop.springaspectj.UserService user = (cn.zhen77.aop.springaspectj.UserService) app.getBean("userServiceImpl");
+        user.add();
+        user.delete();
+    }
 
 
 
