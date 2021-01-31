@@ -7,4 +7,9 @@
 
     <!-- 创建UserServiceProxy对象-->
     <bean id="proxy" class="cn.zhen77.aop.proxy01.UserServiceProxy"/>
+
+    <!-- 创建JDKProxy对象-->
+    <bean id="jdkproxy" class="cn.zhen77.aop.proxy02.JDKProxy"/>
+
+
 </beans>

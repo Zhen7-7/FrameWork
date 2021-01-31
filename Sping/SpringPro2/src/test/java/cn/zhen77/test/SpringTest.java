@@ -1,7 +1,11 @@
 package cn.zhen77.test;
 
 import cn.zhen77.aop.proxy01.UserService;
+import cn.zhen77.aop.proxy01.UserServiceImpl;
 import cn.zhen77.aop.proxy01.UserServiceProxy;
+import cn.zhen77.aop.proxy02.JDKProxy;
+import cn.zhen77.aop.proxy02.StudentService;
+import cn.zhen77.aop.proxy02.StudentServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -27,5 +31,15 @@ public class SpringTest{
         userService.add();
         userService.delet();
     }
+    @Test
+     public void test2() throws Exception{
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        JDKProxy jdkProxy = (JDKProxy) app.getBean("jdkproxy");
+        StudentService student = (StudentService)jdkProxy.createProxyInstance(new StudentServiceImpl());
+        student.add();
 
+        UserService user = (UserService) jdkProxy.createProxyInstance( new  UserServiceImpl());
+        user.add();
+        user.delet();
+    }
 }
