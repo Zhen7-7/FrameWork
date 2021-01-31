@@ -51,6 +51,12 @@
             <artifactId>spring-expression</artifactId>
             <version>4.1.6.RELEASE</version>
         </dependency>
+        <!-- ====注解式声明切面  -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.1</version>
+        </dependency>
     </dependencies>
 
 

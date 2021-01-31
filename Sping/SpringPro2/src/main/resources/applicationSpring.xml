@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+	   http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+    <!--创建业务实现类对象  测试的时候用-->
+    <bean id="usi" class="cn.zhen77.aop.springxml.UserServiceImpl"/>
+    <!--创建切面类对象  动态编织的时候用-->
+    <bean id="advice" class="cn.zhen77.aop.springxml.Advice"/>
+
+
+    <!-- 因为我们用的是接口和实现类去完成需要使用默认的JDK动态代理实现AOP
+        如需改变成CGLib需要如下代码-->
+<!--    <aop:config proxy-target-class="true"/>
+        不写或者置为false说明使用jdk动态代理-->
+
+    <aop:config>
+        <aop:aspect ref="advice">
+            <!--定义切点:-->
+            <aop:pointcut id="addpointcut" expression="execution(* cn.zhen77.aop.springxml.UserServiceImpl.add*(..))"/>
+            <!--定义通知-->
+            <aop:before method="check" pointcut-ref="addpointcut"/><!--前置通知-->
+            <aop:after method="log" pointcut-ref="addpointcut"/><!--后置通知-->
+        </aop:aspect>
+    </aop:config>
+
+
+
+</beans>

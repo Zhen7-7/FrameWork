@@ -52,6 +52,14 @@ public class SpringTest{
         UserSuper userSuper = (UserSuper) cglibproy.createProxyInstance(new UserSub());
         userSuper.add();
     }
+    @Test
+    public void test4() throws Exception {
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationSpring.xml");
+        cn.zhen77.aop.springxml.UserService user = (cn.zhen77.aop.springxml.UserService) app.getBean("usi");
+        user.add();
+        user.delete();
+
+    }
 
 
 
