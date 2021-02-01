@@ -28,7 +28,7 @@ public class SpringTest {
 
     }
     @Test
-    public void Test2() throws Exception{
+    public void test2() throws Exception{
         ApplicationContext app =  new ClassPathXmlApplicationContext("applicationContext.xml");
         DeptService deptService = (DeptService) app.getBean("deptServiceImpl");
         Dept dept = new Dept();
@@ -45,7 +45,20 @@ public class SpringTest {
         int i = deptService.removeDept(22);
         System.out.println(i==1?"success":"false");
     }
+
+    @Test
+    public void test4() throws Exception{
+        ApplicationContext app =  new ClassPathXmlApplicationContext("applicationContext.xml");
+        DeptService deptService = (DeptService) app.getBean("deptServiceImpl");
+        Dept dept = new Dept();
+        dept.setDname("吃饭部");
+        dept.setLoc("地球");
+        dept.setDeptno(22);
+        int i = deptService.addRemovefindDept(dept,22);
+        System.out.println(i);
+    }
 }
+
 
 
 

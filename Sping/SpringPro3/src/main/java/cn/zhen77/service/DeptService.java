@@ -17,4 +17,6 @@ public interface DeptService {
     public int removeDept(int id) throws Exception;
 
     public List<Dept> findAll() throws Exception;
+
+    public int addRemovefindDept(Dept dept,int id ) throws Exception;
 }

@@ -5,6 +5,8 @@ import cn.zhen77.pojo.Dept;
 import cn.zhen77.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +19,7 @@ import java.util.List;
 //service实现类需要@Service
 
 @Service
+@Transactional(propagation = Propagation.REQUIRED)
 public class DeptServiceImpl implements DeptService {
     //依赖于mapper层 所以把依赖以属性的方式注入
     //通过类型来自动注入
@@ -43,5 +46,11 @@ public class DeptServiceImpl implements DeptService {
 
     public List<Dept> findAll() throws Exception {
         return deptMapper.selectAll();
+    }
+
+    public int addRemovefindDept(Dept dept, int id) throws Exception {
+        int i = deptMapper.insertDept(dept);
+        i=i+deptMapper.deleteDept(id);
+        return i;
     }
 }
