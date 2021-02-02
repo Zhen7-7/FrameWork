@@ -17,5 +17,9 @@
     <input type="submit" value="登陆"/>
     <span>${info}</span>
 </form>
+
+
+<a href="log1.do" >这是通往快乐的地方</a>
+<a href="log2.do" >这是通往痛苦的地方</a>
 </body>
 </html>
