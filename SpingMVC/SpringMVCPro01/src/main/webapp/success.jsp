@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-    ${name}注册成功
+    ${username}注册成功
 </body>
 </html>
