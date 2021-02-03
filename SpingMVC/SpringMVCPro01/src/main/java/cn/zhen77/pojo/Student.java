@@ -1,5 +1,8 @@
 package cn.zhen77.pojo;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author : zhen77
  * @date: 2021/2/3 - 02 - 03 - 11:49
@@ -11,6 +14,41 @@ public class Student {
     private String stuName;
     private double stuHeight;
     private boolean isGraduate;
+    private Teacher tea;
+    private String[] likes;
+    private List<Teacher> teas;
+
+    public List<Teacher> getTeas() {
+        return teas;
+    }
+
+    public void setTeas(List<Teacher> teas) {
+        this.teas = teas;
+    }
+
+    public Teacher getTea() {
+        return tea;
+    }
+
+    public void setTea(Teacher tea) {
+        this.tea = tea;
+    }
+
+    public String[] getLikes() {
+        return likes;
+    }
+
+    public void setLikes(String[] likes) {
+        this.likes = likes;
+    }
+
+    public Teacher getTeacher() {
+        return tea;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.tea = teacher;
+    }
 
     public Integer getStuId() {
         return stuId;
@@ -47,11 +85,14 @@ public class Student {
     public Student() {
     }
 
-    public Student(Integer stuId, String stuName, double stuHeight, boolean isGraduate) {
+    public Student(Integer stuId, String stuName, double stuHeight, boolean isGraduate, Teacher tea, String[] likes,List<Teacher> teas) {
         this.stuId = stuId;
         this.stuName = stuName;
         this.stuHeight = stuHeight;
         this.isGraduate = isGraduate;
+        this.tea = tea;
+        this.likes = likes;
+        this.teas = teas;
     }
 
     @Override
@@ -61,6 +102,9 @@ public class Student {
                 ", stuName='" + stuName + '\'' +
                 ", stuHeight=" + stuHeight +
                 ", isGraduate=" + isGraduate +
+                ", tea=" + tea +
+                ", likes=" + Arrays.toString(likes) +
+                ", teas=" + teas +
                 '}';
     }
 }

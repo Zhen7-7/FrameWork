@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-${stuName} is good.
+${stu} is good.
 </body>
 </html>
