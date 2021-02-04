@@ -27,4 +27,15 @@
         </property>
 
     </bean>
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--  "/"表示目标根目录,"**" 项目下任意路径以及任意子路径: 拦截所有其你去路径-->
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/index.do"/><!--放行请求路径-->
+            <mvc:exclude-mapping path="/login.do"/>
+            <mvc:exclude-mapping path="reg.do"/>
+            <bean class="cn.zhen77.handler.MyHandle"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
