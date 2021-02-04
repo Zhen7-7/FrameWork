@@ -24,6 +24,8 @@
     <input type="checkbox" name="likes" value="sleep">睡觉<br>
     <input type="checkbox" name="likes" value="play">玩游戏<br>
 
+    <input type="date" name="dt"/>
+
     <input type="submit" value="添加"/>
  </form>
 </body>

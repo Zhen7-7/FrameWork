@@ -1,7 +1,9 @@
 package cn.zhen77.pojo;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author : zhen77
@@ -17,6 +19,24 @@ public class Student {
     private Teacher tea;
     private String[] likes;
     private List<Teacher> teas;
+    private Map<Integer,Teacher> maps;
+    private Date date;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Map<Integer, Teacher> getMaps() {
+        return maps;
+    }
+
+    public void setMaps(Map<Integer, Teacher> maps) {
+        this.maps = maps;
+    }
 
     public List<Teacher> getTeas() {
         return teas;
@@ -85,7 +105,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(Integer stuId, String stuName, double stuHeight, boolean isGraduate, Teacher tea, String[] likes,List<Teacher> teas) {
+    public Student(Integer stuId, String stuName, double stuHeight, boolean isGraduate, Teacher tea, String[] likes,List<Teacher> teas,Map<Integer,Teacher> maps,Date date) {
         this.stuId = stuId;
         this.stuName = stuName;
         this.stuHeight = stuHeight;
@@ -93,6 +113,8 @@ public class Student {
         this.tea = tea;
         this.likes = likes;
         this.teas = teas;
+        this.maps = maps;
+        this.date = date;
     }
 
     @Override
@@ -105,6 +127,7 @@ public class Student {
                 ", tea=" + tea +
                 ", likes=" + Arrays.toString(likes) +
                 ", teas=" + teas +
+                ", maps=" + maps +
                 '}';
     }
 }

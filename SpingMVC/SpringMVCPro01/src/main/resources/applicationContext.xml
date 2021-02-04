@@ -13,5 +13,18 @@
     <!--设置注解扫描路径-->
     <context:component-scan base-package="cn.zhen77.controller"/>
     <!-- 默认加载注解处理器映射器和注解处理器适配器以及很多的参数绑定-->
-    <mvc:annotation-driven/>
+    <!--<mvc:annotation-driven/>-->
+
+    <!-- 配置 处理器映射器  和 处理器适配器 .....器 -->
+    <mvc:annotation-driven conversion-service="formatc"/>
+
+    <!--配置类型转换器-->
+    <bean id="formatc" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="cn.zhen77.util.MyDateConverter"></bean>
+            </list>
+        </property>
+
+    </bean>
 </beans>

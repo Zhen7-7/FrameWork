@@ -16,7 +16,8 @@ public class StudentController  {
     @RequestMapping("add.do")
     public ModelAndView addStu(Student stu){
         ModelAndView mv = new ModelAndView();
-        mv.addObject("stu",stu);
+//        mv.addObject("stu",stu);
+        System.out.println(stu);
         mv.setViewName("teashow.do");
 
 
