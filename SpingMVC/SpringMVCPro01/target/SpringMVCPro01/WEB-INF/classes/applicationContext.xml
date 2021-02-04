@@ -36,6 +36,8 @@
             <mvc:exclude-mapping path="/login.do"/>
             <mvc:exclude-mapping path="/reg.do"/>
             <mvc:exclude-mapping path="/upload.do"/>
+            <mvc:exclude-mapping path="/getDownList.do"/>
+            <mvc:exclude-mapping path="/down.do"/>
             <bean class="cn.zhen77.handler.MyHandle"/>
         </mvc:interceptor>
     </mvc:interceptors>
@@ -48,5 +50,5 @@
     <!--配置放行静态资源 -->
     <!-- 如果没有配置mvc:resources去寻找@requestmappingg -->
     <!-- 静态资源放行  mapping:指的是网络中URL地址  location：放行本地的什么位置的资源-->
-    <mvc:resources location="/imgs/" mapping="/imgs/**" ></mvc:resources>
-        </beans>
+    <mvc:resources location="/imgs/" mapping="/imgs/**" />
+</beans>
