@@ -1,7 +1,7 @@
 package cn.zhen77.controller;
 
 import cn.zhen77.pojo.Emp;
-import cn.zhen77.service.impl.EmpService;
+import cn.zhen77.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +26,7 @@ public class EmpController {
     public void setEmpService(EmpService empService) {
         this.empService = empService;
     }
+
 
     @RequestMapping("show.do")
     public ModelAndView show(){

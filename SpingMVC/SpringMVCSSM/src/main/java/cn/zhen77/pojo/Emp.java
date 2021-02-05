@@ -17,10 +17,17 @@ public class Emp {
 
     private Double comm;
 
-//    private Integer deptno;
+    private Integer deptno;
 
     private Dept dept;
 
+    public Integer getDeptno() {
+        return deptno;
+    }
+
+    public void setDeptno(Integer deptno) {
+        this.deptno = deptno;
+    }
 
     public Integer getEmpno() {
         return empno;
@@ -89,7 +96,7 @@ public class Emp {
     public Emp() {
     }
 
-    public Emp(Integer empno, String ename, String job, Integer mgr, Date hiredate, Double sal, Double comm, Dept dept) {
+    public Emp(Integer empno, String ename, String job, Integer mgr, Date hiredate, Double sal, Double comm, Integer deptno, Dept dept) {
         this.empno = empno;
         this.ename = ename;
         this.job = job;
@@ -97,6 +104,7 @@ public class Emp {
         this.hiredate = hiredate;
         this.sal = sal;
         this.comm = comm;
+        this.deptno = deptno;
         this.dept = dept;
     }
 

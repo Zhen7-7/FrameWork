@@ -1,4 +1,4 @@
-package cn.zhen77.service.impl;
+package cn.zhen77.service;
 
 import cn.zhen77.pojo.Emp;
 

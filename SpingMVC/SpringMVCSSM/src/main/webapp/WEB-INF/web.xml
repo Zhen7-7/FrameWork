@@ -1,8 +1,11 @@
-<!DOCTYPE web-app PUBLIC
-        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-<web-app>
+
+
   <display-name>Archetype Created Web Application</display-name>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
@@ -18,7 +21,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>springmvc</servlet-name>
-    <url-pattern>*.do</url-pattern>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
 
   <!-- 2.配置：防止乱码的过滤器 -->
@@ -42,7 +45,7 @@
   <!-- 3.加载Spring核心配置文件 (希望项目启动的时候，立刻加载ApplicationContext-*.xml配置文件,在Application应用对象的初始化参数里加载)-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:applicationContext-dao.xml</param-value>
+    <param-value>classpath:ApplicationContext.xml</param-value>
   </context-param>
 
 
