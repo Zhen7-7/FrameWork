@@ -1,0 +1,12 @@
+server:
+  port: 1024
+spring:
+  datasources:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test
+      username: root
+      password: root
+
+mybatis:
+  mapper-locations: classpath:cn/zhen77/mapper/*.xml
+  type-aliases-package: cn.zhen77.pojo
