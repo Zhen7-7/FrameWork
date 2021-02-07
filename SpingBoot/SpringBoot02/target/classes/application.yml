@@ -1,12 +1,59 @@
-server:
-  port: 1024
 spring:
-  datasources:
+  datasource:
+
+    # 使用阿里的Druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/test
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
     password: root
+    # 连接池的配置信息
+    # 初始化大小，最大，最小
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      #配置获取连接等待超时的时间
+      max-wait: 60000
+
+      #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+
+      #配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 1  #验证查询 本意是查询1列 这里是检测
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+
+      #打开PSCache，并且指定每个连接上PSCache的大小
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      filter: satat,wall,slf4j
+      connection-properties: druid.stat.mergesql\=true;druid.stat.slowsqlmillis\=5000
+
+      #配置DruidStatFilter
+      web-stat-filter:
+        enabled: true
+        url-pattern: "/*"
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+
+        #配置DruidStatViewServlet  访问路径  当项目启动时 访问该路径就能进入druid的网站
+        stat-view-servlet:
+          url-pattern: "/druid/*"
+
+          #IP白名单（没有配置或者为空，则允许所有访问）
+          allow: 127.0.0.1,192.168.163.1
+
+          #IP黑名单（同时存在时，deny优先于allow）
+          deny: 192.168.1.188
+          reset-enable: false #是否开启禁用
+          #登陆名
+          login-username: admin
+          #登陆密码
+          login-password: 123456
 
 mybatis:
   mapper-locations: classpath:cn/zhen77/mapper/*.xml
   type-aliases-package: cn.zhen77.pojo
+

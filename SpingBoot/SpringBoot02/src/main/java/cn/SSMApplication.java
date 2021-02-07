@@ -2,6 +2,7 @@ package cn;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
@@ -11,7 +12,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * @Description: cn
  * @version: 1.0
  */
-@SpringBootApplication{exclude = {DataSourceAutoConfiguration.class}}
+@SpringBootApplication
 @MapperScan("cn.zhen77.mapper")
 
 public class SSMApplication {
