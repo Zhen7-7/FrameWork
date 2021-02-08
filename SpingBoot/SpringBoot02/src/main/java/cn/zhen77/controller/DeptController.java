@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -36,10 +37,17 @@ public class DeptController {
         return  deptService.selectAll();
     }*/
     @RequestMapping("/getall")
-    public ModelAndView getall(){
+    public ModelAndView getall(HttpSession session){
         ModelAndView mv = new ModelAndView();
+
         mv.addObject("list",deptService.selectAll());
+        mv.addObject("str","张三");
         mv.setViewName("show");
+        session.setAttribute("dept","运维组");
         return mv;
+    }
+    @RequestMapping("/show")
+    public void show(int id,String name){
+        System.out.println(id+"**********"+name);
     }
 }

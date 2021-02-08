@@ -15,9 +15,16 @@
         <td th:text="${dept.deptno}"/>
         <td th:text="${dept.dname}"/>
         <td th:text="${dept.loc}"/>
-
     </tr>
 </table>
+<span th:text="aaaa">span标签</span>
+<span th:text="${str}"></span>
+<span th:text="${session.dept}"></span>
+<span th:if="${session.dept} =='运维组'">deot的值为运维组</span>
+<br>
+<a href="/show?id=3&name=lisi">提交李四</a>
+<a href="@{/show(id=3,mane=zhangsan}">提交张三</a>
+<a href="@{/show(id=4,name=${dept}">提交运维组</a>
 
 </body>
 </html>

@@ -42,3 +42,197 @@
 2021-02-08 15:10:24.585 [http-nio-8080-exec-2] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -==>  Preparing: select * from dept 
 2021-02-08 15:10:24.611 [http-nio-8080-exec-2] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -==> Parameters: 
 2021-02-08 15:10:24.654 [http-nio-8080-exec-2] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -<==      Total: 5
+2021-02-08 15:47:08.486 [main] INFO  cn.SSMApplication -Starting SSMApplication on DESKTOP-KFJAMQ7 with PID 6092 (E:\FrameWork\SpingBoot\SpringBoot02\target\classes started by Zhen77 in E:\FrameWork\SpingBoot\SpringBoot02)
+2021-02-08 15:47:08.488 [main] INFO  cn.SSMApplication -No active profile set, falling back to default profiles: default
+2021-02-08 15:47:08.536 [main] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@f5958c9: startup date [Mon Feb 08 15:47:08 CST 2021]; root of context hierarchy
+2021-02-08 15:47:09.726 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2021-02-08 15:47:09.738 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2021-02-08 15:47:09.747 [main] INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2021-02-08 15:47:09.748 [main] INFO  org.apache.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.31
+2021-02-08 15:47:09.752 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener -Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+2021-02-08 15:47:09.753 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener -APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-02-08 15:47:09.753 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener -APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-02-08 15:47:09.758 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener -OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+2021-02-08 15:47:09.907 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2021-02-08 15:47:09.907 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1371 ms
+2021-02-08 15:47:10.129 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -Servlet dispatcherServlet mapped to [/]
+2021-02-08 15:47:10.130 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -Servlet statViewServlet mapped to [/druid/*]
+2021-02-08 15:47:10.133 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2021-02-08 15:47:10.133 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2021-02-08 15:47:10.134 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2021-02-08 15:47:10.134 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2021-02-08 15:47:10.134 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2021-02-08 15:47:10.217 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure -Init DruidDataSource
+2021-02-08 15:47:11.624 [main] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2021-02-08 15:47:11.894 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-02-08 15:47:12.183 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@f5958c9: startup date [Mon Feb 08 15:47:08 CST 2021]; root of context hierarchy
+2021-02-08 15:47:12.257 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/getall]}" onto public org.springframework.web.servlet.ModelAndView cn.zhen77.controller.DeptController.getall(javax.servlet.http.HttpSession)
+2021-02-08 15:47:12.262 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2021-02-08 15:47:12.264 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2021-02-08 15:47:12.285 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-02-08 15:47:12.286 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-02-08 15:47:12.653 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2021-02-08 15:47:12.655 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Bean with name 'statFilter' has been autodetected for JMX exposure
+2021-02-08 15:47:12.655 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2021-02-08 15:47:12.661 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper]
+2021-02-08 15:47:12.663 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+2021-02-08 15:47:12.673 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2021-02-08 15:47:12.683 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool -Using a shared selector for servlet write/read
+2021-02-08 15:47:12.697 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path ''
+2021-02-08 15:47:12.704 [main] INFO  cn.SSMApplication -Started SSMApplication in 4.65 seconds (JVM running for 6.293)
+2021-02-08 15:47:17.689 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2021-02-08 15:47:17.689 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2021-02-08 15:47:17.723 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 33 ms
+2021-02-08 15:47:17.801 [http-nio-8080-exec-1] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -==>  Preparing: select * from dept 
+2021-02-08 15:47:17.843 [http-nio-8080-exec-1] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -==> Parameters: 
+2021-02-08 15:47:17.888 [http-nio-8080-exec-1] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -<==      Total: 5
+2021-02-08 15:48:01.530 [main] INFO  cn.SSMApplication -Starting SSMApplication on DESKTOP-KFJAMQ7 with PID 12236 (E:\FrameWork\SpingBoot\SpringBoot02\target\classes started by Zhen77 in E:\FrameWork\SpingBoot\SpringBoot02)
+2021-02-08 15:48:01.533 [main] INFO  cn.SSMApplication -No active profile set, falling back to default profiles: default
+2021-02-08 15:48:01.570 [main] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@f5958c9: startup date [Mon Feb 08 15:48:01 CST 2021]; root of context hierarchy
+2021-02-08 15:48:02.644 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2021-02-08 15:48:02.656 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2021-02-08 15:48:02.664 [main] INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2021-02-08 15:48:02.664 [main] INFO  org.apache.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.31
+2021-02-08 15:48:02.669 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener -Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+2021-02-08 15:48:02.670 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener -APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-02-08 15:48:02.670 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener -APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-02-08 15:48:02.674 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener -OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+2021-02-08 15:48:02.822 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2021-02-08 15:48:02.822 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1253 ms
+2021-02-08 15:48:03.050 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -Servlet dispatcherServlet mapped to [/]
+2021-02-08 15:48:03.051 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -Servlet statViewServlet mapped to [/druid/*]
+2021-02-08 15:48:03.054 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2021-02-08 15:48:03.054 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2021-02-08 15:48:03.054 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2021-02-08 15:48:03.054 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2021-02-08 15:48:03.055 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2021-02-08 15:48:03.114 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure -Init DruidDataSource
+2021-02-08 15:48:04.440 [main] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2021-02-08 15:48:04.642 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-02-08 15:48:04.802 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@f5958c9: startup date [Mon Feb 08 15:48:01 CST 2021]; root of context hierarchy
+2021-02-08 15:48:04.841 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/getall]}" onto public org.springframework.web.servlet.ModelAndView cn.zhen77.controller.DeptController.getall(javax.servlet.http.HttpSession)
+2021-02-08 15:48:04.845 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2021-02-08 15:48:04.845 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2021-02-08 15:48:04.876 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-02-08 15:48:04.877 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-02-08 15:48:05.167 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2021-02-08 15:48:05.169 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Bean with name 'statFilter' has been autodetected for JMX exposure
+2021-02-08 15:48:05.169 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2021-02-08 15:48:05.173 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper]
+2021-02-08 15:48:05.173 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+2021-02-08 15:48:05.184 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2021-02-08 15:48:05.192 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool -Using a shared selector for servlet write/read
+2021-02-08 15:48:05.206 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path ''
+2021-02-08 15:48:05.209 [main] INFO  cn.SSMApplication -Started SSMApplication in 4.029 seconds (JVM running for 5.698)
+2021-02-08 15:48:05.432 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2021-02-08 15:48:05.433 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2021-02-08 15:48:05.460 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 27 ms
+2021-02-08 15:48:05.510 [http-nio-8080-exec-1] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -==>  Preparing: select * from dept 
+2021-02-08 15:48:05.534 [http-nio-8080-exec-1] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -==> Parameters: 
+2021-02-08 15:48:05.562 [http-nio-8080-exec-1] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -<==      Total: 5
+2021-02-08 15:53:00.462 [main] INFO  cn.SSMApplication -Starting SSMApplication on DESKTOP-KFJAMQ7 with PID 10500 (E:\FrameWork\SpingBoot\SpringBoot02\target\classes started by Zhen77 in E:\FrameWork\SpingBoot\SpringBoot02)
+2021-02-08 15:53:00.480 [main] INFO  cn.SSMApplication -No active profile set, falling back to default profiles: default
+2021-02-08 15:53:00.583 [main] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@f5958c9: startup date [Mon Feb 08 15:53:00 CST 2021]; root of context hierarchy
+2021-02-08 15:53:02.434 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2021-02-08 15:53:02.447 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2021-02-08 15:53:02.459 [main] INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2021-02-08 15:53:02.459 [main] INFO  org.apache.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.31
+2021-02-08 15:53:02.466 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener -Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+2021-02-08 15:53:02.466 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener -APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-02-08 15:53:02.466 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener -APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-02-08 15:53:02.472 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener -OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+2021-02-08 15:53:02.704 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2021-02-08 15:53:02.705 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 2122 ms
+2021-02-08 15:53:02.910 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -Servlet dispatcherServlet mapped to [/]
+2021-02-08 15:53:02.913 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -Servlet statViewServlet mapped to [/druid/*]
+2021-02-08 15:53:02.921 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2021-02-08 15:53:02.922 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2021-02-08 15:53:02.922 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2021-02-08 15:53:02.922 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2021-02-08 15:53:02.922 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2021-02-08 15:53:03.000 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure -Init DruidDataSource
+2021-02-08 15:53:04.339 [main] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2021-02-08 15:53:04.621 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-02-08 15:53:04.860 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@f5958c9: startup date [Mon Feb 08 15:53:00 CST 2021]; root of context hierarchy
+2021-02-08 15:53:04.943 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/show]}" onto public void cn.zhen77.controller.DeptController.show(int,java.lang.String)
+2021-02-08 15:53:04.945 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/getall]}" onto public org.springframework.web.servlet.ModelAndView cn.zhen77.controller.DeptController.getall(javax.servlet.http.HttpSession)
+2021-02-08 15:53:04.951 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2021-02-08 15:53:04.952 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2021-02-08 15:53:04.996 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-02-08 15:53:04.997 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-02-08 15:53:05.422 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2021-02-08 15:53:05.424 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Bean with name 'statFilter' has been autodetected for JMX exposure
+2021-02-08 15:53:05.424 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2021-02-08 15:53:05.428 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper]
+2021-02-08 15:53:05.429 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+2021-02-08 15:53:05.445 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2021-02-08 15:53:05.459 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool -Using a shared selector for servlet write/read
+2021-02-08 15:53:05.482 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path ''
+2021-02-08 15:53:05.486 [main] INFO  cn.SSMApplication -Started SSMApplication in 5.877 seconds (JVM running for 7.785)
+2021-02-08 15:53:05.648 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2021-02-08 15:53:05.651 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2021-02-08 15:53:05.706 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 54 ms
+2021-02-08 15:53:05.793 [http-nio-8080-exec-1] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -==>  Preparing: select * from dept 
+2021-02-08 15:53:05.825 [http-nio-8080-exec-1] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -==> Parameters: 
+2021-02-08 15:53:05.869 [http-nio-8080-exec-1] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -<==      Total: 5
+2021-02-08 15:53:16.823 [http-nio-8080-exec-6] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] -Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalStateException: Optional int parameter 'id' is present but cannot be translated into a null value due to being declared as a primitive type. Consider declaring it as object wrapper for the corresponding primitive type.] with root cause
+java.lang.IllegalStateException: Optional int parameter 'id' is present but cannot be translated into a null value due to being declared as a primitive type. Consider declaring it as object wrapper for the corresponding primitive type.
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.handleNullValue(AbstractNamedValueMethodArgumentResolver.java:244)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:114)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:124)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:161)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:131)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:877)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:783)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2021-02-08 15:54:14.452 [http-nio-8080-exec-3] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -==>  Preparing: select * from dept 
+2021-02-08 15:54:14.452 [http-nio-8080-exec-3] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -==> Parameters: 
+2021-02-08 15:54:14.459 [http-nio-8080-exec-3] DEBUG cn.zhen77.mapper.DeptMapper.selectAll -<==      Total: 5
