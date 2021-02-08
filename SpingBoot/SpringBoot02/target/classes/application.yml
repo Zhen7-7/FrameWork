@@ -68,4 +68,8 @@ spring:
 mybatis:
   mapper-locations: classpath:cn/zhen77/mapper/*.xml
   type-aliases-package: cn.zhen77.pojo
-
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

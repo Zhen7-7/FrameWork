@@ -60,6 +60,14 @@
             <version>2.1.10.RELEASE</version>
             <optional>true</optional>
         </dependency>
+        <!--9.添加：pagehelper依赖 -->
+        <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.12</version>
+        </dependency>
+
     </dependencies>
     <!--添加Spring Boot 的打包插件 -->
     <build>
