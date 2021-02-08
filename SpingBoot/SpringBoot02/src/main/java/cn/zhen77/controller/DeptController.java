@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -29,9 +30,16 @@ public class DeptController {
         this.deptService = deptService;
     }
 
-    @RequestMapping("/getall")
+    /*@RequestMapping("/getall")
     @ResponseBody
     public List<Dept> getall(){
         return  deptService.selectAll();
+    }*/
+    @RequestMapping("/getall")
+    public ModelAndView getall(){
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("list",deptService.selectAll());
+        mv.setViewName("show");
+        return mv;
     }
 }

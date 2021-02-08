@@ -1,4 +1,11 @@
 spring:
+  mvc:
+    view:
+      prefix: classpath:/templates/
+      suffix: .html
+
+
+
   datasource:
 
     # 使用阿里的Druid连接池
@@ -52,6 +59,7 @@ spring:
           login-username: admin
           #登陆密码
           login-password: 123456
+
 
 mybatis:
   mapper-locations: classpath:cn/zhen77/mapper/*.xml
