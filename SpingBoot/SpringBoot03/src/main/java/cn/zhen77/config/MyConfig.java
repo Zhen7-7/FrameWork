@@ -1,10 +1,15 @@
 package cn.zhen77.config;
 
+import cn.zhen77.interCeptor.MyInterCeptor;
 import cn.zhen77.pojo.Person;
 import cn.zhen77.pojo.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * @author : zhen77
@@ -13,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
  * @version: 1.0
  */
 @Configuration
-public class MyConfig {
+public class MyConfig implements WebMvcConfigurer {
     @Bean//创建bean对象
     protected User userId1(){
         User user = new User();
@@ -41,5 +46,22 @@ public class MyConfig {
         person.setPid(013);
         person.setUser(userId2);
         return person;
+    }
+    //还是那个句话 没有对象就注入进来
+    @Autowired
+    private MyInterCeptor myInterCeptor;
+
+    public MyInterCeptor getMyInterCeptor() {
+        return myInterCeptor;
+    }
+
+    public void setMyInterCeptor(MyInterCeptor myInterCeptor) {
+        this.myInterCeptor = myInterCeptor;
+    }
+
+    @Override
+    //该方法配置拦截器拦截路径的映射
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(myInterCeptor).addPathPatterns("/**").excludePathPatterns("/login");
     }
 }
