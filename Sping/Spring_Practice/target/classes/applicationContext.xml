@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans    
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--User  user =new User();
+        id:通过这个属性获取类的对象
+    	class:配置哪个类的对象
+     -->
+    <bean id="user" class="cn.zhen77.pojo.User"/>
+    <!--使用有参构造方法-->
+    <bean id="user2" class="cn.zhen77.pojo.User">
+       <!-- <constructor-arg name="uid" value="111"/>
+        <constructor-arg name="uname" value="sunzhen"/>
+        <constructor-arg name="uage" value="555"/>-->
+        <constructor-arg index="0" value="111"/>
+        <constructor-arg index="1" value="mumu"/>
+        <constructor-arg index="2" value="13"/>
+    </bean>
+    <!--使用工厂模式-->
+    <!--先实例工厂对象-->
+    <bean id="factory" class="cn.zhen77.factory.UserFactory"/>
+    <!--再创建对应的bean对象-->
+    <bean id="u1" factory-bean="factory" factory-method="getUser"/>
+
+    <!--静态工厂类+无参-->
+    <bean id="us1" class="cn.zhen77.factory.UserFactory" factory-method="getstaticInstance"/>
+
+    <!--实例工厂类+有参-->
+    <bean id="factory1" class="cn.zhen77.factory.UserFactory"/>
+    <bean id="u2" factory-bean="factory1" factory-method="getUser1">
+        <constructor-arg name="user" ref="user2"></constructor-arg>
+    </bean>
+    <!--静态工厂类+有参-->
+    <bean id="us2" class="cn.zhen77.factory.UserFactory" factory-method="getStaticInstance1">
+        <constructor-arg name="user" ref="user2"/>
+    </bean>
+</beans>
