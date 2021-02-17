@@ -1,5 +1,7 @@
 package cn.zhen77.httpclient;
 
+import cn.zhen77.bean.User;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -17,6 +19,7 @@ import org.junit.Test;
 import javax.swing.text.html.parser.Entity;
 import java.io.Closeable;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +84,48 @@ public class HttpClientDemo {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //结果:zhangsanabc
+
+    }
+
+    /*相应对象转换为json格式的字符串*/
+    @Test
+    public void testObjectPostDemo(){
+        try {
+            //1.创建http工具(浏览器)
+            CloseableHttpClient httpClient = HttpClients.createDefault();
+            //2.创建httpPost请求对象
+            HttpPost httpPost = new HttpPost("http://localhost:8080/demo2");
+            //3.创建参数
+            List<NameValuePair> param = new ArrayList<>();
+            param.add(new BasicNameValuePair("id","1"));
+            param.add(new BasicNameValuePair("name","小皮皮"));
+            //由于响应体是字符串，因此把HttpEntity类型转换为字符串类型
+            HttpEntity httpEntity = new UrlEncodedFormEntity(param,"utf-8");
+
+            //4.获取相应对象
+            httpPost.setEntity(httpEntity);
+            CloseableHttpResponse response = httpClient.execute(httpPost);
+
+            String content = EntityUtils.toString(response.getEntity());
+            //打印出来是json格式,有的时候我们希望获得的是User对象,所以我们需要在客户端也创建User对象
+            System.out.println(content);
+
+            //jackson 把字符串转换为对象
+            ObjectMapper objectMapper = new ObjectMapper();
+            User user = objectMapper.readValue(content, User.class);
+            System.out.println(user);
+
+            //使用jackson把对象转为json
+            String userjson = objectMapper.writeValueAsString(user);
+            System.out.println(userjson);
+
+            response.close();
+            httpClient.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
     }
 }
-//结果:zhangsanabc
