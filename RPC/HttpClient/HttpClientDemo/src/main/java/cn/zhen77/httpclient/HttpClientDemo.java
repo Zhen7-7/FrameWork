@@ -1,6 +1,7 @@
 package cn.zhen77.httpclient;
 
 import cn.zhen77.bean.User;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
@@ -125,7 +126,30 @@ public class HttpClientDemo {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @Test
+    public void testListPostDemo() {
+        try {
+            //1.创建http工具(浏览器)
+            CloseableHttpClient httpClient = HttpClients.createDefault();
+            //2.创建httpPost请求对象
+            HttpPost httpPost = new HttpPost("http://localhost:8080/demo3");
 
+            CloseableHttpResponse response = httpClient.execute(httpPost);
 
+            String content = EntityUtils.toString(response.getEntity());
+            System.out.println(content);
+
+            //jackson
+            ObjectMapper objectMapper = new ObjectMapper();
+            JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, User.class);
+            List<User> list = objectMapper.readValue(content, javaType);
+            System.out.println(list);
+
+            response.close();
+            httpClient.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
