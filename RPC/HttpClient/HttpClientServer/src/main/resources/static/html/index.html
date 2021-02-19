@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+
+            $(function () {
+                $("button").click(function () {
+                    var json = '[{"id":1,"name":"请不要戳我"},' +
+                        '{"id":2,"name":"你为何不听话"},' +
+                        '{"id":3,"name":"还点"},' +
+                        '{"id":4,"name":"你为何如此不要脸"},' +
+                        '{"id":5,"name":"别点了"},'+
+                        '{"id":6,"name":"别点了"},' +
+                        '{"id":7,"name":"再点都傻了"}]';
+                    $.ajax({
+                        url:'/demo05',
+                        type:'post',
+                        success:function(data){
+                            for(var i = 0;i<data.length;i++)
+                            {
+                                alert(data[i].id+" "+data[i].name);
+                            }
+                        },
+                        contentType:'application/json' ,//请求体重的内容类型
+                        dataType:'json',//响应类型
+                        data:json
+                    });
+                });
+            });
+
+
+    </script>
+</head>
+<body>
+    <button>按钮</button>
+</body>
+</html>
