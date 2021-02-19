@@ -1,6 +1,7 @@
 package cn.zhen77.httpclient;
 
 import cn.zhen77.bean.User;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpEntity;
@@ -11,6 +12,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
@@ -151,5 +154,28 @@ public class HttpClientDemo {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @Test
+    public void testInputStream() throws Exception {
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpPost httpPost = new HttpPost("http://localhost:8080/demo4");
+        List<User> list = new ArrayList<>();
+        list.add(new User(1,"neinei"));
+        list.add(new User(2,"mantou"));
+        ObjectMapper objectMapper = new ObjectMapper();
+        //将集合对象转换为json;类型的字符串
+        String jsonParam = objectMapper.writeValueAsString(list);
+        HttpEntity httpEntity = new StringEntity(jsonParam, ContentType.APPLICATION_JSON);
+
+        httpPost.setEntity(httpEntity);
+
+        CloseableHttpResponse response = httpClient.execute(httpPost);
+        String content = EntityUtils.toString(response.getEntity());
+        System.out.println(content);
+
+        response.close();
+        httpClient.close();
+
+
     }
 }
