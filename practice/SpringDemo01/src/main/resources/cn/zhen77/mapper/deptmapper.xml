@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zhen77.mapper.DeptMapper">
+    <!--插入语句-->
+    <insert id="insertDept" parameterType="cn.zhen77.pojo.Dept">
+        insert into dept values(#{deptno},#{dname},#{loc})
+    </insert>
+
+    <!-- 删除语句-->
+    <delete id="deleteDept" parameterType="cn.zhen77.pojo.Dept">
+        delete from dept where deptno=#{deptno}
+    </delete>
+    <!-- 查找语句-->
+    <select id="selectAll" resultType="cn.zhen77.pojo.Dept">
+        select * from dept
+    </select>
+
+</mapper>
