@@ -19,9 +19,6 @@
     </resultMap>
     
     <select id="selectAllEmp" resultMap="empAndDept">
-
-
-
         select e.empno,e.ename,e.mgr,e.sal,e.hiredate,d.deptno,d.dname,d.loc
         from emp e  inner join dept d
                     on e.deptno=d.deptno

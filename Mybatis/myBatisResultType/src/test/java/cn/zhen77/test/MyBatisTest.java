@@ -91,6 +91,7 @@ public class MyBatisTest {
                 }
             }
         }
+        session.close();
 
     }
 
