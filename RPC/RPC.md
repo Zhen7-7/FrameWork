@@ -934,6 +934,36 @@ Mode: standalone  (单机版)   证明可以了  端口号2181
 
 ​	例如：ls -R / 显示根目录下所有内容
 
+```
+[zk: localhost:2181(CONNECTED) 0] ls /
+[zookeeper]
+
+
+[zk: localhost:2181(CONNECTED) 1] ls -R /
+/
+/zookeeper
+/zookeeper/config
+/zookeeper/quota
+[zk: localhost:2181(CONNECTED) 2] 
+
+
+[zk: localhost:2181(CONNECTED) 2] ls -s /
+[zookeeper]cZxid = 0x0
+ctime = Thu Jan 01 08:00:00 CST 1970
+mZxid = 0x0
+mtime = Thu Jan 01 08:00:00 CST 1970
+pZxid = 0x0
+cversion = -1
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 0
+numChildren = 1
+
+```
+
+
+
 #### 2     create
 
 ​	create /path [data]
@@ -954,7 +984,30 @@ Mode: standalone  (单机版)   证明可以了  端口号2181
 
 ​	例如： get -s /demo
 
-![](RPC.assets/rpc-04.png)
+```zookeeper
+[zk: localhost:2181(CONNECTED) 3] create /demo
+Created /demo
+
+
+[zk: localhost:2181(CONNECTED) 4] ls /
+[demo, zookeeper]
+
+
+[zk: localhost:2181(CONNECTED) 5] get -s /demo
+null
+cZxid = 0x2
+ctime = Wed Mar 03 21:19:45 CST 2021
+mZxid = 0x2
+mtime = Wed Mar 03 21:19:45 CST 2021
+pZxid = 0x2
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 0
+numChildren = 0
+
+```
 
 ​	null:存放的数据
 
@@ -974,17 +1027,45 @@ Mode: standalone  (单机版)   证明可以了  端口号2181
 
 ​	aclVersion:节点ACL(授权信息)的更新次数
 
-​	ephemeralOwner:如果该节点为ephemeral节点(临时，生命周期与session一样), ephemeralOwner值表示与该节点绑定的session id. 如果该节点不是ephemeral节点, ephemeralOwner值为0.
+​	ephemeralOwner:如果该节点为ephemeral节点(临时，生命周期与session一样), ephemeralOwner值表示与该节点绑定的session id. 如果该节点不是ephemeral节点, ephemeralOwner值为0.  留意一下
 
 ​	dataLength:节点数据字节数
 
 ​	numChildren:子节点数量
+
+**说了这么多zookeeper是干嘛的? 就他妈是放数据的**
+
+那么如何放置
 
 #### 4     set
 
 ​	set /path data
 
 ​	设置节点内容
+
+```
+[zk: localhost:2181(CONNECTED) 6] set /demo moyudan
+[zk: localhost:2181(CONNECTED) 7] get /demo
+moyudan
+[zk: localhost:2181(CONNECTED) 8] get -s /demo
+moyudan
+cZxid = 0x2
+ctime = Wed Mar 03 21:19:45 CST 2021
+mZxid = 0x3
+mtime = Wed Mar 03 21:24:36 CST 2021
+pZxid = 0x2
+cversion = 0
+dataVersion = 1
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 7
+numChildren = 0
+
+```
+
+现在我们知道了  Zookeeper就是我么放置数据用的   我们知道RPC框架有控制中心,一个是写注册,一个是取, 
+
+我们就通过zookeeper来进行存取,非常滴方便
 
 #### 5     delete
 
