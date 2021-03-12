@@ -15,13 +15,12 @@ public class SendContent {
     /*
     * 创建Zookeeper对象
          参数1:zookeeper ip+端口号
-         参数2:访问时间设置
-         参数3:当连接成功后编写信息
+         参数2:访问超时设置
+         参数3:当连接成功后,编写信息(使用匿名内部类的方式进行实现)
     * */
         try {
             ZooKeeper zooKeeper = new ZooKeeper("192.168.91.128:2181", 10000000, new Watcher() {
                 //匿名内部类
-
                 public void process(WatchedEvent watchedEvent) {
                     System.out.println("获取连接");
                 }
@@ -31,6 +30,9 @@ public class SendContent {
                 参数2:发送的内容
                 参数3:权限
                 参数4:内容的格式
+                EPHEMERAL:(临时的) 和session绑定在一起 (ephemeral)
+                PERSISTENT:(持久的)   会覆盖
+                PERSISTENT_SEQUENTIAL  序列性的;持续叠加
                 */
             String content = zooKeeper.create("/demo/rmi-address",
                     "rmi:localhost:8080/demoService".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT_SEQUENTIAL);
