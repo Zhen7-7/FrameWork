@@ -7,5 +7,5 @@ package cn.zhen77.service;
  * @version: 1.0
  */
 public interface DemoService {
-    String consumerDemo();
+    public String consumerDemo();
 }

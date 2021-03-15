@@ -1,0 +1,8 @@
+
+dubbo:
+  application:
+    name: dubbo-cunsumer
+  registry:
+    address: zookeeper://192.168.91.128:2181
+server:
+  port: 1024
