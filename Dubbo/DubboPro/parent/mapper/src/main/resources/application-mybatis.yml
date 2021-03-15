@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/distributed?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    data-username: root
+    data-password: root
+
+
+mybatis:
+  mapper-locations: classpath:mybatis/*.xml
+  type-aliases-package: cn.zhen77.pojo

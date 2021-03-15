@@ -1,0 +1,13 @@
+dubbo:
+  application:
+    name: dubbo-provider
+  registry:
+    address: zookeeper://192.168.91.182:2181
+
+# 加载其他配置文件,加载其他的Application-*.yml文件
+# 多个之间用","分割
+
+spring:
+  profiles:
+    active: mybatis
+#这里为啥是mybatis 记不记得我们创建了一个mapper下的application-mybatis.yml那个* = mybatis

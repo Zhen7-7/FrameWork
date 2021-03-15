@@ -1,0 +1,7 @@
+dubbo:
+  application:
+    name: dubbo-dept-consumer
+  registry:
+    address: zookeeper://192.168.91.182:2181
+
+
