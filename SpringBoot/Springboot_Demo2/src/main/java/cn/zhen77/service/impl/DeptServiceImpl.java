@@ -24,4 +24,9 @@ public class DeptServiceImpl implements DeptService {
     public List<Dept> find() {
         return deptMapper.selectAll();
     }
+
+    @Override
+    public int insert(Dept dept) {
+        return deptMapper.insert(dept);
+    }
 }

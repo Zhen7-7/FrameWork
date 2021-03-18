@@ -12,4 +12,5 @@ import java.util.List;
  */
 public interface DeptService {
     public List<Dept> find();
+    public int insert(Dept dept);
 }

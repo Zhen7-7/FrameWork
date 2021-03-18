@@ -19,6 +19,15 @@ import java.util.List;
 public class DeptController {
     @Autowired
     private DeptService deptService;
+    @RequestMapping("/add")
+    @ResponseBody
+    public String add(){
+        Dept dept = new Dept(40,"pkp");
+        int result = deptService.insert(dept);
+        if(result==1){
+            return "seccus";
+        }else return "false";
+    }
 
     @RequestMapping("/demo")
     @ResponseBody

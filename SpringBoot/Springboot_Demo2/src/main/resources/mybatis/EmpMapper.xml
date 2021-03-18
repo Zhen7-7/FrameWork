@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zhen77.mapper.EmpMapper">
+
+    <resultMap id="all" type="emp">
+        <id column="id" property="eid"></id>
+        <result column="name" property="ename"></result>
+        <result column="did" property="did" ></result>
+    </resultMap>
+    <select id="selectAll" resultMap="all">
+        select id,name,did from emp
+    </select>
+
+    <resultMap id="one" type="emp">
+        <id column="id" property="eid"></id>
+        <result column="name" property="ename"></result>
+        <result column="did" property="did" ></result>
+    </resultMap>
+    <select id="selectByOne" resultMap="one">
+        select id,name,did from emp where id = #{id}
+    </select>
+
+
+    <insert id="insert" parameterType="emp">
+        insert into emp (id,name,did) values (#{eid},#{ename},#{did})
+    </insert>
+
+
+</mapper>

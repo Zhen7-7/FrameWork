@@ -12,4 +12,6 @@ import java.util.List;
  */
 public interface DeptMapper {
     public List<Dept> selectAll();
+
+    public int insert(Dept dept);
 }
