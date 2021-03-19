@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/js/kindeditor/themes/default/default.css" />
+    <script src="/js/kindeditor/kindeditor.js"></script>
+    <script src="/js/kindeditor/lang/zh_CN.js"></script>
+    <script>
+        KindEditor.ready(function(K) {
+            var editor = K.editor({
+                allowFileManager : true
+            });
+            K('#J_selectImage').click(function() {
+                editor.loadPlugin('multiimage', function() {
+                    editor.plugin.multiImageDialog({
+                        clickFn : function(urlList) {
+                            var div = K('#J_imageView');
+                            div.html('');
+                            K.each(urlList, function(i, data) {
+                                div.append('<img src="' + data.url + '"width="80">');
+                            });
+                            editor.hideDialog();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="J_selectImage" value="批量上传" />
+    <div id="J_imageView"></div>
+</body>
+</html>
