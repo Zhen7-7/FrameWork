@@ -1,4 +1,4 @@
-package pojo;
+package cn.zhen77.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import lombok.ToString;
 /**
  * @author : zhen77
  * @date: 2021/5/25 - 05 - 25 - 16:05
- * @Description: pojo
+ * @Description: cn.zhen77.pojo
  * @version: 1.0
  */
 @Data
@@ -16,7 +16,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class City {
-    private Integer ID;
+    private Integer id;
     private String name;
 
 }

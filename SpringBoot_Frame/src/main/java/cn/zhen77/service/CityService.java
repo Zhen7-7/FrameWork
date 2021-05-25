@@ -1,16 +1,16 @@
-package service;
+package cn.zhen77.service;
 
-import mapper.CityMapper;
+import cn.zhen77.mapper.CityMapper;
+import cn.zhen77.pojo.City;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pojo.City;
 
 import java.util.List;
 
 /**
  * @author : zhen77
  * @date: 2021/5/25 - 05 - 25 - 16:20
- * @Description: service
+ * @Description: cn.zhen77.service
  * @version: 1.0
  */
 @Service
